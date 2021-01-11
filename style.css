@@ -1,11 +1,3 @@
-/*
-    COLORS
-    black: #292f36;
-    blue: #1982C4;
-    white: #f7fff7;
-    red: #ff6b6b;
-    yellow: #ffe66d;
-*/
 @media (prefers-color-scheme: dark) {
   :root {
     --body-background: #101010;
@@ -17,8 +9,8 @@
 @media (prefers-color-scheme: light) {
   :root {
     --body-background: #f7f6f4;
-    --body-color: #999999;
-    --header-color: #000000;
+    --body-color: #777777;
+    --header-color: #111111;
   }
 }
 
