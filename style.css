@@ -141,6 +141,144 @@ blockquote::after {
   z-index: 1;
 }
 
+.app-review-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+}
+
+.app-review-score {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-right: 3rem;
+}
+
+.app-review-score .score {
+  color: var(--header-color);
+  font-weight: 900;
+  font-size: 3rem;
+}
+
+.app-review-stars {
+  display: flex;
+  flex-direction: row;
+}
+
+.app-review-stars .fa-star {
+  width: 64px;
+  height: 64px;
+  margin-left: 0.25rem;
+  color: var(--orange-web);
+  fill: var(--orange-web);
+}
+
+.app-review-list {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: space-between;
+  height: 900px;
+}
+
+.app-review {
+  width: calc(340px - 3rem);
+  border-radius: 5px;
+  background: var(--quote-accent-color);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-review p {
+  font-style: italic;
+  color: var(--header-color);
+}
+
+.app-review span {
+  text-transform: uppercase;
+  font-size: 0.6rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.feature div:nth-child(odd) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4rem;
+}
+
+.feature div:nth-child(odd) svg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.feature div:nth-child(even) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature div:nth-child(even) h3 {
+  margin-top: 0rem;
+}
+
+.app-preview {
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem auto;
+}
+
+@media only screen and (max-width: 767px) {
+  .app-review-list {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+  }
+
+  .app-review {
+    width: calc(100% - 3rem);
+  }
+
+  .app-review-summary {
+    flex-direction: column;
+  }
+
+  .app-review-score {
+    margin-right: 0rem;
+    margin-bottom: 2rem;
+  }
+
+  .app-review-stars .fa-star {
+    width: 48px;
+    height: 48px;
+  }
+
+  .feature {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+
+  .feature div:nth-child(odd) {
+    margin-right: 0rem;
+    margin-bottom: 2rem;
+  }
+
+  .app-preview {
+    flex-direction: column;
+  }
+
+  .app-preview img {
+    margin: 1rem auto;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -249,13 +387,34 @@ blockquote::after {
 
 footer {
   padding-top: 2em;
+  text-align: center;
 }
 
-.footer-links a {
+footer a {
   text-decoration: none;
-  margin-right: 1em;
 }
 
-.footer-links a:hover {
+footer a:hover {
+  text-decoration: none;
   color: var(--orange-web);
+}
+
+footer .fine-print {
+  text-align: left;
+  font-size: 0.55rem;
+  font-style: italic;
+}
+
+.rock-paper-scissor {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  height: 32px;
+  margin: 4rem auto;
+}
+
+.rock-paper-scissor svg {
+  width: 32px;
+  height: 32px;
+  color: var(--quote-accent-color);
 }
