@@ -234,6 +234,10 @@ blockquote::after {
   margin: 4rem auto;
 }
 
+.faq h3 {
+  margin-top: 3rem;
+}
+
 @media only screen and (max-width: 767px) {
   .app-review-list {
     display: flex;
