@@ -17,7 +17,7 @@
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.8",
-          "ratingCount": "127"
+          "ratingCount": "151"
         },
         "offers": {
           "@type": "Offer",
@@ -29,8 +29,8 @@
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;1,300&family=PT+Serif:ital@1&family=Open+Sans:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
-    <link href="/style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300;1,600&family=Rubik:wght@500;700&display=swap" rel="stylesheet">
+    <link href="/assets/css/tailwind.css" rel="stylesheet"/>
     <!-- Fathom - beautiful, simple website analytics -->
     <script
       src="https://cdn.usefathom.com/script.js"
@@ -40,42 +40,36 @@
     <!-- / Fathom -->
   </head>
   <body>
-    <main class="page-wrap">
-      <div class="header">
-    <a href="/" class="logo">Edvin Lindén</a>
-    <div class="navigation">
+    <main class="w-full mx-auto my-0 px-6 md:w-[720px] md:px-0">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-16">
+    <a href="/" class="font-heading text-2xl no-underline">Edvin Lindén</a>
+    <div>
         
-        <a href="/writing">Writing</a>
+        <a href="/writing" class="font-heading no-underline">Writing</a>
     </div>
 </div>
 
   <p><img
     src="/images/the-box-timer/app-preview-1.webp"
-    style="
-            display: block; 
-            width: 100%;
-            max-width: 720px;
-            height: auto;  
-            max-height: 325px;
-            margin: 6rem auto;
-        "
+    class="block w-full max-w-[720px] h-[auto] max-h-[325px] my-12 mx-auto"
     alt="The Box Timer - App Preview"
     height="325"/></p>
-<h1 style="text-align: center;">The Box Timer – Workout timer</h1>
-<p style="text-align: center;">
+<h1 class="text-center">The Box Timer – Workout timer</h1>
+<p class="text-center">
 The Box Timer is a free and simple workout timer app for your iPhone. It's perfect for workouts at home, outside or at your box.
 </p>
-<p style="text-align: center;">
+<p class="text-center">
 Whether you are into functional fitness, weight lifting, stretching of any other type of workouts – The Box Timer will keep track of the time for you!
 </p>
-<p  style="text-align: center;">It could possibly be the best workout timer app there is!</p>
-<div style="display: flex; justify-content: center; margin-top: 4rem;">
+<p class="text-center">It could possibly be the best workout timer app there is!</p>
+<div 
+    class="flex justify-center mt-16">
     <a
         href="https://apps.apple.com/us/app/the-box-timer/id1547518531"
         target="_blank"
         rel="noopener noreferrer"
         title="The Box Timer on the App Store"
-        style="text-decoration: none;"
+        class="no-underline"
         onclick="window.fathom.trackGoal('4PGG1LP5', 0);">
         <img
             src="/images/appstore-badge.svg"
@@ -85,109 +79,109 @@ Whether you are into functional fitness, weight lifting, stretching of any other
             height="54"/>
     </a>
 </div>
-<h2 style="text-align: center; margin-top: 8rem; margin-bottom: 4rem;">Features</h2>
-<div class="feature">
-    <div>
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="stopwatch-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-stopwatch-20 fa-w-14 fa-3x"><path fill="currentColor" d="M398.5,190.91l.59-.61,26.59-26.58a16,16,0,0,0,0-22.63L403,118.41a16,16,0,0,0-22.63,0l-24.68,24.68A206.68,206.68,0,0,0,256,98.5V64h32a16,16,0,0,0,16-16V16A16,16,0,0,0,288,0H160a16.05,16.05,0,0,0-16,16V48a16.05,16.05,0,0,0,16,16h32V98.5A207.92,207.92,0,0,0,16.09,297.57C12.64,411.5,106.76,510.22,220.72,512,337.13,513.77,432,420,432,304A206,206,0,0,0,398.5,190.91ZM204.37,377.55a8.2,8.2,0,0,1,8.32,8.07v22.31a8.2,8.2,0,0,1-8.32,8.07H121.52a16.46,16.46,0,0,1-16.61-17.62c2.78-35.22,14.67-57.41,38.45-91.37,20.42-29.19,27.1-37.32,27.1-62.34,0-16.92-1.79-24.27-12.21-24.27-9.39,0-12.69,7.4-12.69,22.68v5.23a8.2,8.2,0,0,1-8.33,8.07h-24.9a8.2,8.2,0,0,1-8.33-8.07v-4.07c0-27.3,8.48-60.24,56.43-60.24,43,0,55.57,25.85,55.57,61,0,35.58-12.44,51.21-34.35,81.31-11.56,15-24.61,35.57-26.41,51.2ZM344,352.32c0,35.16-12.3,63.68-57.23,63.68C243.19,416,232,386.48,232,352.55V247.22c0-40.73,19.58-63.22,56.2-63.22C325,184,344,206.64,344,245.3ZM287.87,221.73c-9.41,0-13.23,7.5-13.23,20V357.68c0,13.11,3.59,20.59,13.23,20.59s13-8,13-21.27V241.06C300.89,229.79,297.88,221.73,287.87,221.73Z" class=""></path></svg>
+<h2 class="text-center mt-32 mb-16">Features</h2>
+<div class="flex items-center mb-16">
+    <div class="flex justify-center items-center mr-16">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="stopwatch-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-stopwatch-20 fa-w-14 fa-3x w-16 h-16"><path fill="currentColor" d="M398.5,190.91l.59-.61,26.59-26.58a16,16,0,0,0,0-22.63L403,118.41a16,16,0,0,0-22.63,0l-24.68,24.68A206.68,206.68,0,0,0,256,98.5V64h32a16,16,0,0,0,16-16V16A16,16,0,0,0,288,0H160a16.05,16.05,0,0,0-16,16V48a16.05,16.05,0,0,0,16,16h32V98.5A207.92,207.92,0,0,0,16.09,297.57C12.64,411.5,106.76,510.22,220.72,512,337.13,513.77,432,420,432,304A206,206,0,0,0,398.5,190.91ZM204.37,377.55a8.2,8.2,0,0,1,8.32,8.07v22.31a8.2,8.2,0,0,1-8.32,8.07H121.52a16.46,16.46,0,0,1-16.61-17.62c2.78-35.22,14.67-57.41,38.45-91.37,20.42-29.19,27.1-37.32,27.1-62.34,0-16.92-1.79-24.27-12.21-24.27-9.39,0-12.69,7.4-12.69,22.68v5.23a8.2,8.2,0,0,1-8.33,8.07h-24.9a8.2,8.2,0,0,1-8.33-8.07v-4.07c0-27.3,8.48-60.24,56.43-60.24,43,0,55.57,25.85,55.57,61,0,35.58-12.44,51.21-34.35,81.31-11.56,15-24.61,35.57-26.41,51.2ZM344,352.32c0,35.16-12.3,63.68-57.23,63.68C243.19,416,232,386.48,232,352.55V247.22c0-40.73,19.58-63.22,56.2-63.22C325,184,344,206.64,344,245.3ZM287.87,221.73c-9.41,0-13.23,7.5-13.23,20V357.68c0,13.11,3.59,20.59,13.23,20.59s13-8,13-21.27V241.06C300.89,229.79,297.88,221.73,287.87,221.73Z" class=""></path></svg>
     </div>
     <div>
-        <h3>Count up, count down!</h3>
+        <h3 class="mt-0">Count up, count down!</h3>
         Set your workout time cap and press start, the timer will beep when the time is up. Perfect for AMRAP and For Time workouts.
     </div>
 </div>
-<div class="feature">
-    <div>
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="infinity" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-infinity fa-w-20 fa-3x"><path fill="currentColor" d="M471.1 96C405 96 353.3 137.3 320 174.6 286.7 137.3 235 96 168.9 96 75.8 96 0 167.8 0 256s75.8 160 168.9 160c66.1 0 117.8-41.3 151.1-78.6 33.3 37.3 85 78.6 151.1 78.6 93.1 0 168.9-71.8 168.9-160S564.2 96 471.1 96zM168.9 320c-40.2 0-72.9-28.7-72.9-64s32.7-64 72.9-64c38.2 0 73.4 36.1 94 64-20.4 27.6-55.9 64-94 64zm302.2 0c-38.2 0-73.4-36.1-94-64 20.4-27.6 55.9-64 94-64 40.2 0 72.9 28.7 72.9 64s-32.7 64-72.9 64z" class=""></path></svg>
+<div class="flex items-center mb-16">
+    <div class="flex justify-center items-center mr-16">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="infinity" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-infinity fa-w-20 fa-3x w-16 h-16"><path fill="currentColor" d="M471.1 96C405 96 353.3 137.3 320 174.6 286.7 137.3 235 96 168.9 96 75.8 96 0 167.8 0 256s75.8 160 168.9 160c66.1 0 117.8-41.3 151.1-78.6 33.3 37.3 85 78.6 151.1 78.6 93.1 0 168.9-71.8 168.9-160S564.2 96 471.1 96zM168.9 320c-40.2 0-72.9-28.7-72.9-64s32.7-64 72.9-64c38.2 0 73.4 36.1 94 64-20.4 27.6-55.9 64-94 64zm302.2 0c-38.2 0-73.4-36.1-94-64 20.4-27.6 55.9-64 94-64 40.2 0 72.9 28.7 72.9 64s-32.7 64-72.9 64z" class=""></path></svg>
     </div>
     <div>
-        <h3>Custom intervals</h3>
+        <h3 class="mt-0">Custom intervals</h3>
         Crush any EMOM or Tabata workout with the interval timer! Use it with or without rest time – it's up to you!
     </div>
 </div>
-<div class="feature">
-    <div>
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-pointer" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-hand-pointer fa-w-14 fa-3x"><path fill="currentColor" d="M448 240v96c0 3.084-.356 6.159-1.063 9.162l-32 136C410.686 499.23 394.562 512 376 512H168a40.004 40.004 0 0 1-32.35-16.473l-127.997-176c-12.993-17.866-9.043-42.883 8.822-55.876 17.867-12.994 42.884-9.043 55.877 8.823L104 315.992V40c0-22.091 17.908-40 40-40s40 17.909 40 40v200h8v-40c0-22.091 17.908-40 40-40s40 17.909 40 40v40h8v-24c0-22.091 17.908-40 40-40s40 17.909 40 40v24h8c0-22.091 17.908-40 40-40s40 17.909 40 40zm-256 80h-8v96h8v-96zm88 0h-8v96h8v-96zm88 0h-8v96h8v-96z" class=""></path></svg>
+<div class="flex items-center mb-16">
+    <div class="flex justify-center items-center mr-16">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-pointer" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-hand-pointer fa-w-14 fa-3x w-16 h-16"><path fill="currentColor" d="M448 240v96c0 3.084-.356 6.159-1.063 9.162l-32 136C410.686 499.23 394.562 512 376 512H168a40.004 40.004 0 0 1-32.35-16.473l-127.997-176c-12.993-17.866-9.043-42.883 8.822-55.876 17.867-12.994 42.884-9.043 55.877 8.823L104 315.992V40c0-22.091 17.908-40 40-40s40 17.909 40 40v200h8v-40c0-22.091 17.908-40 40-40s40 17.909 40 40v40h8v-24c0-22.091 17.908-40 40-40s40 17.909 40 40v24h8c0-22.091 17.908-40 40-40s40 17.909 40 40zm-256 80h-8v96h8v-96zm88 0h-8v96h8v-96zm88 0h-8v96h8v-96z" class=""></path></svg>
     </div>
     <div>
-        <h3>Tap to pause</h3>
+        <h3 class="mt-0">Tap to pause</h3>
         Not all workouts turn out as planned, tap the timer to pause and once more to start again. 
     </div>
 </div>
-<div class="feature">
-    <div>
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ban" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-ban fa-w-16 fa-3x"><path fill="currentColor" d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z" class=""></path></svg>
+<div class="flex items-center mb-16">
+    <div class="flex justify-center items-center mr-16">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ban" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-ban fa-w-16 fa-3x w-16 h-16"><path fill="currentColor" d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z" class=""></path></svg>
     </div>
     <div>
-        <h3>No annoying ads</h3>
+        <h3 class="mt-0">No annoying ads</h3>
         It's just a timer – this is not an app with annoying ads or bloated with useless features.
     </div>
 </div>
-<h2 style="text-align: center; margin-top: 8rem;">Trusted by thousands of athletes</h2>
-<div class="app-review-summary">
-    <div class="app-review-score">
-        <span class="score">4.8</span>
-        <span class="total">out of 5</span>
+<h2 class="text-center mt-32 mb-16">Trusted by thousands of athletes</h2>
+<div class="flex flex-col md:flex-row justify-center items-center mt-16 mb-20">
+    <div class="flex flex-col text-center mr-0 md:mr-12 mb-8 md:mb-0">
+        <span class="text-slate-900 dark:text-slate-50 font-heading font-bold text-5xl">4.8</span>
+        <span class="mt-2">out of 5</span>
     </div>
-    <div class="app-review-stars">
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-star fa-w-18 fa-3x"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" class=""></path></svg>
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-star fa-w-18 fa-3x"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" class=""></path></svg>
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-star fa-w-18 fa-3x"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" class=""></path></svg>
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-star fa-w-18 fa-3x"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" class=""></path></svg>
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-star fa-w-18 fa-3x"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" class=""></path></svg>
+    <div class="flex flex-row">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-star fa-w-18 fa-3x w-12 md:w-14 h-12 md:h-14 ml-1 text-amber-500 fill-amber-500"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" class=""></path></svg>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-star fa-w-18 fa-3x w-12 md:w-14 h-12 md:h-14 ml-1 text-amber-500 fill-amber-500"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" class=""></path></svg>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-star fa-w-18 fa-3x w-12 md:w-14 h-12 md:h-14 ml-1 text-amber-500 fill-amber-500"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" class=""></path></svg>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-star fa-w-18 fa-3x w-12 md:w-14 h-12 md:h-14 ml-1 text-amber-500 fill-amber-500"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" class=""></path></svg>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-star fa-w-18 fa-3x w-12 md:w-14 h-12 md:h-14 ml-1 text-amber-500 fill-amber-500"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" class=""></path></svg>
     </div>
 </div>
-<div class="app-review-list">
-    <div class="app-review">
-        <p>
+<div class="flex flex-row md:flex-col flex-wrap content-between h-[auto] md:h-[900px]">
+    <div class="w-full md:w-[340px] p-6 mb-6 rounded-md bg-slate-300 dark:bg-slate-800">
+        <p class="text-slate-900 dark:text-slate-100 italic">
             This app is a must have for CrossFit workouts. Ideal for emoms, amraps and for time workouts. I even use it for strength work like squats by programming beeps for 45 seconds work and 2 minutes rest. And it’s free! I mean come on. 👍🏼
         </p>
-        <span>Dodgems – United Kingdom</span>
+        <span class="text-xs uppercase">Dodgems – United Kingdom</span>
     </div>
-    <div class="app-review">
-        <p>
+    <div class="w-full md:w-[340px] p-6 mb-6 rounded-md bg-slate-300 dark:bg-slate-800">
+        <p class="text-slate-900 dark:text-slate-100 italic">
             Best quality timer I’ve used. Virtually identical to a normal gym timer, best part is it’s FREE!!!!
         </p>
-        <span>ABrodie88 – United Kingdom</span>
+        <span class="text-xs uppercase">ABrodie88 – United Kingdom</span>
     </div>
-    <div class="app-review">
-        <p>
+    <div class="w-full md:w-[340px] p-6 mb-6 rounded-md bg-slate-300 dark:bg-slate-800">
+        <p class="text-slate-900 dark:text-slate-100 italic">
             the best of the best timer
         </p>
-        <span>fhernandow – Mexico</span>
+        <span class="text-xs uppercase">fhernandow – Mexico</span>
     </div>
-    <div class="app-review">
-        <p>
+    <div class="w-full md:w-[340px] p-6 mb-6 rounded-md bg-slate-300 dark:bg-slate-800">
+        <p class="text-slate-900 dark:text-slate-100 italic">
             Does the job during my crossfit wods. Perfecto. Thank you thank you
         </p>
-        <span>Wznme – United States</span>
+        <span class="text-xs uppercase">Wznme – United States</span>
     </div>
-    <div class="app-review">
-        <p>
+    <div class="w-full md:w-[340px] p-6 mb-6 rounded-md bg-slate-300 dark:bg-slate-800">
+        <p class="text-slate-900 dark:text-slate-100 italic">
             This has everything you need. Clean, easy to use, and no junk ads everywhere. Looks just like the one at my crossfit gym.. except it’s free!
         </p>
-        <span>steven.still – United States</span>
+        <span class="text-xs uppercase">steven.still – United States</span>
     </div>
-    <div class="app-review">
-        <p>
+    <div class="w-full md:w-[340px] p-6 mb-6 rounded-md bg-slate-300 dark:bg-slate-800">
+        <p class="text-slate-900 dark:text-slate-100 italic">
             Up, down and fixed interval - simple, beautiful
         </p>
-        <span>Hello_Kittin – Sweden</span>
+        <span class="text-xs uppercase">Hello_Kittin – Sweden</span>
     </div>
 </div>
-<h2 style="text-align: center; margin-top: 8rem;">Frequently asked questions</h2>
-<div class="faq">
-<h3>Where can I get the app?</h3>
+<h2 class="text-center mt-32 mb-16">Frequently asked questions</h2>
+<div>
+<h3 class="mt-12">Where can I get the app?</h3>
 <p>
     You can get The Box Timer free on the Apple App Store for iPhone. 
 </p>
 <p>
     I plan to release the app on the Google Play Store in the future.
 </p>
-<h3>Where can I use the app?</h3>
+<h3 class="mt-12">Where can I use the app?</h3>
 <p>
     The Box Timer is perfect for workouts at your home gym or garage gym. However the app is also great for workouts outside or at a regular gym.
 </p>
-<h3>What is a WOD?</h3>
+<h3 class="mt-12">What is a WOD?</h3>
 <p>
     WOD stands for "Workout of the day" and is a word often used in CrossFit gyms(or boxes as they also are called).
 </p>
@@ -197,7 +191,7 @@ Whether you are into functional fitness, weight lifting, stretching of any other
 <p>
     For most athletes a WOD is a single workout regardless if it's the actual workout of the day for the gym. For example Fran, Cindy and Murph are popular WODs.
 </p>
-<h3>What is AMRAP, EMOM and Tabata?</h3>
+<h3 class="mt-12">What is AMRAP, EMOM and Tabata?</h3>
 <p>
     There's a few different formats and ways to measure score of a WOD. These are almost always a combination of time, rounds or repitions. Because of that you can understand why a good timer is so useful when doing these types of workouts. 
 </p>
@@ -224,39 +218,21 @@ Whether you are into functional fitness, weight lifting, stretching of any other
     </li>
 </ul>
 </div>
-<h2 style="text-align: center; margin-top: 8rem;">Screenshots</h2>
-<div class="app-preview">
+<h2 class="text-center mt-32 mb-16">Screenshots</h2>
+<div class="flex flex-col md:flex-row justify-between my-16 mx-auto">
     <img
         src="/images/the-box-timer/app-preview-2.webp"
-        style="
-                display: block; 
-                width: 100%;
-                max-width: 220px;
-                height: auto;  
-                max-height: 720px;
-            "
+        class="block w-full max-w-[220px] h-[auto] max-h-[720px] my-4 mx-auto md:my-0"
         alt="The Box Timer - App Preview"
         height="325"/>
     <img
         src="/images/the-box-timer/app-preview-3.webp"
-        style="
-                display: block; 
-                width: 100%;
-                max-width: 220px;
-                height: auto;  
-                max-height: 720px;
-            "
+        class="block w-full max-w-[220px] h-[auto] max-h-[720px] my-4 mx-auto md:my-0"
         alt="The Box Timer - App Preview"
         height="325"/>
     <img
         src="/images/the-box-timer/app-preview-4.webp"
-        style="
-                display: block; 
-                width: 100%;
-                max-width: 220px;
-                height: auto;  
-                max-height: 720px;
-            "
+        class="block w-full max-w-[220px] h-[auto] max-h-[720px] my-4 mx-auto md:my-0"
         alt="The Box Timer - App Preview"
         height="325"/>
 </div>
@@ -278,8 +254,8 @@ Whether you are into functional fitness, weight lifting, stretching of any other
 </div>
 
 
-<footer>
-  <div class="rock-paper-scissor">
+<footer class="mt-8">
+  <div class="flex justify-between w-[300px] h-[32px] my-20 mx-auto text-slate-300 dark:text-slate-800">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-rock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-hand-rock fa-w-16 fa-3x">
       <path fill="currentColor" d="M464.8 80c-26.9-.4-48.8 21.2-48.8 48h-8V96.8c0-26.3-20.9-48.3-47.2-48.8-26.9-.4-48.8 21.2-48.8 48v32h-8V80.8c0-26.3-20.9-48.3-47.2-48.8-26.9-.4-48.8 21.2-48.8 48v48h-8V96.8c0-26.3-20.9-48.3-47.2-48.8-26.9-.4-48.8 21.2-48.8 48v136l-8-7.1v-48.1c0-26.3-20.9-48.3-47.2-48.8C21.9 127.6 0 149.2 0 176v66.4c0 27.4 11.7 53.5 32.2 71.8l111.7 99.3c10.2 9.1 16.1 22.2 16.1 35.9v6.7c0 13.3 10.7 24 24 24h240c13.3 0 24-10.7 24-24v-2.9c0-12.8 2.6-25.5 7.5-37.3l49-116.3c5-11.8 7.5-24.5 7.5-37.3V128.8c0-26.3-20.9-48.4-47.2-48.8z" class=""></path>
     </svg>
@@ -297,13 +273,14 @@ Whether you are into functional fitness, weight lifting, stretching of any other
     </svg>
   </div>
   <div>
-    <p>
+    <p class="text-center mb-12">
       Edvin Lindén &nbsp;–&nbsp; 
         <a
           href="mailto:hello@edvinlinden.se"
           target="_blank"
           title="Email"
           rel="noopener noreferrer"
+          class="no-underline"
           >Email</a
         >
         ·
@@ -312,21 +289,21 @@ Whether you are into functional fitness, weight lifting, stretching of any other
               target="_blank"
               title="LinkedIn"
               rel="noopener noreferrer"
+              class="no-underline"
               >LinkedIn</a>
     </p>
-    <p>&nbsp;</p>
-    <p class="fine-print">
+    <p class="text-2xs leading-3 italic mt-8">
       I want to process as little personal information as possible when you use my website. 
       That's why I've chosen Fathom Analytics for my website analytics, which doesn't use cookies and complies with the GDPR, ePrivacy (including PECR), COPPA and CCPA. 
       Using this privacy-friendly website analytics software, your IP address is only briefly processed, and I have no way of identifying you. 
       As per the CCPA, your personal information is de-identified. You can read more about this on <a href="https://usefathom.com/compliance" target="_blank"
         title="Fathom Analytics" rel="noopener noreferrer">Fathom Analytics' website</a>.
     </p>
-    <p class="fine-print">
+    <p class="text-2xs leading-3 italic">
       The purpose of me using this software is to understand my website traffic in the most privacy-friendly way possible so that I can continually improve my website. 
       The lawful basis as per the GDPR is "f); where our legitimate interests are to improve our website and business continually." As per the explanation, no personal data is stored over time.
     </p>
-    <p class="fine-print">
+    <p class="text-2xs leading-3 italic">
       <a
         href="https://usefathom.com/ref/SACEEW"
         target="_blank"

@@ -10,8 +10,8 @@
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;1,300&family=PT+Serif:ital@1&family=Open+Sans:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
-    <link href="/style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300;1,600&family=Rubik:wght@500;700&display=swap" rel="stylesheet">
+    <link href="/assets/css/tailwind.css" rel="stylesheet"/>
     <!-- Fathom - beautiful, simple website analytics -->
     <script
       src="https://cdn.usefathom.com/script.js"
@@ -21,29 +21,29 @@
     <!-- / Fathom -->
   </head>
   <body>
-    <main class="page-wrap">
-      <div class="header">
-    <a href="/" class="logo">Edvin Lindén</a>
-    <div class="navigation">
+    <main class="w-full mx-auto my-0 px-6 md:w-[720px] md:px-0">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-16">
+    <a href="/" class="font-heading text-2xl no-underline">Edvin Lindén</a>
+    <div>
         
-        <a href="/writing">Writing</a>
+        <a href="/writing" class="font-heading no-underline">Writing</a>
     </div>
 </div>
 
-  <h1 style="font-size: 1.5em; margin-bottom: 2em; color: var(--body-color);">
+  <h1 class="font-sans font-light text-2xl mb-4">
 I work as a product manager at <a href="https://fortnox.se" target="_blank" title="Fortnox" rel="noopener noreferrer">Fortnox</a>, however this is a place for my side projects.
 </h1>
 
 
-<div class="project">
-    <div class="project-information">
-        <h2>The Impossible Safe</h2>
-        <p>June 2021 · iPhone App</p>
+<div class="flex flex-col justify-between py-16">
+    <div class="flex flex-col justify-center pb-8">
+        <h2 class="mb-0">The Impossible Safe</h2>
+        <p class="mt-1">June 2021 · iPhone App</p>
 
-        <div class="project-display">
+        <div class="max-w-full">
             <img
                 src="images/the-impossible-safe-cover.webp"
-                class="project-image"
+                class="rounded-xl w-full max-w-[720px] h-[auto] my-4 shadow-xl"
                 alt="The Impossible Safe - Cover Image"
                 title="The Impossible Safe"
                 width="720"
@@ -68,7 +68,7 @@ I work as a product manager at <a href="https://fortnox.se" target="_blank" titl
                     target="_blank"
                     rel="noopener noreferrer"
                     title="The Impossible Safe on the App Store"
-                    style="text-decoration: none">
+                    class="no-underline">
                     <img
                         src="images/appstore-badge.svg"
                         alt="The Impossible Safe on the App Store"
@@ -80,16 +80,16 @@ I work as a product manager at <a href="https://fortnox.se" target="_blank" titl
         </p>
     </div>
 </div>
-<div class="project">
-    <div class="project-information">
-        <a href="/the-box-timer">
-            <h2>The Box Timer</h2>
+<div class="flex flex-col justify-between py-16">
+    <div class="flex flex-col justify-center pb-8">
+        <a href="/the-box-timer" class="mb-0">
+            <h2 class="mb-0">The Box Timer</h2>
         </a>
-        <p>January 2021 · iPhone App</p>
-        <div class="project-display">
+        <p class="mt-0">January 2021 · iPhone App</p>
+        <div class="max-w-full">
             <img
                 src="images/theboxtimer.webp"
-                class="project-image"
+                class="rounded-xl w-full max-w-[720px] h-[auto] my-4 shadow-xl"
                 alt="The Box Timer App"
                 title="The Box Timer App"
                 width="720"
@@ -108,7 +108,7 @@ I work as a product manager at <a href="https://fortnox.se" target="_blank" titl
                     target="_blank"
                     rel="noopener noreferrer"
                     title="The Box Timer on the App Store"
-                    style="text-decoration: none">
+                    class="no-underline">
                     <img
                         src="images/appstore-badge.svg"
                         alt="The Box Timer on the App Store"
@@ -120,8 +120,8 @@ I work as a product manager at <a href="https://fortnox.se" target="_blank" titl
         </p>
     </div>
 </div>
-<footer>
-  <div class="rock-paper-scissor">
+<footer class="mt-8">
+  <div class="flex justify-between w-[300px] h-[32px] my-20 mx-auto text-slate-300 dark:text-slate-800">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-rock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-hand-rock fa-w-16 fa-3x">
       <path fill="currentColor" d="M464.8 80c-26.9-.4-48.8 21.2-48.8 48h-8V96.8c0-26.3-20.9-48.3-47.2-48.8-26.9-.4-48.8 21.2-48.8 48v32h-8V80.8c0-26.3-20.9-48.3-47.2-48.8-26.9-.4-48.8 21.2-48.8 48v48h-8V96.8c0-26.3-20.9-48.3-47.2-48.8-26.9-.4-48.8 21.2-48.8 48v136l-8-7.1v-48.1c0-26.3-20.9-48.3-47.2-48.8C21.9 127.6 0 149.2 0 176v66.4c0 27.4 11.7 53.5 32.2 71.8l111.7 99.3c10.2 9.1 16.1 22.2 16.1 35.9v6.7c0 13.3 10.7 24 24 24h240c13.3 0 24-10.7 24-24v-2.9c0-12.8 2.6-25.5 7.5-37.3l49-116.3c5-11.8 7.5-24.5 7.5-37.3V128.8c0-26.3-20.9-48.4-47.2-48.8z" class=""></path>
     </svg>
@@ -139,13 +139,14 @@ I work as a product manager at <a href="https://fortnox.se" target="_blank" titl
     </svg>
   </div>
   <div>
-    <p>
+    <p class="text-center mb-12">
       Edvin Lindén &nbsp;–&nbsp; 
         <a
           href="mailto:hello@edvinlinden.se"
           target="_blank"
           title="Email"
           rel="noopener noreferrer"
+          class="no-underline"
           >Email</a
         >
         ·
@@ -154,21 +155,21 @@ I work as a product manager at <a href="https://fortnox.se" target="_blank" titl
               target="_blank"
               title="LinkedIn"
               rel="noopener noreferrer"
+              class="no-underline"
               >LinkedIn</a>
     </p>
-    <p>&nbsp;</p>
-    <p class="fine-print">
+    <p class="text-2xs leading-3 italic mt-8">
       I want to process as little personal information as possible when you use my website. 
       That's why I've chosen Fathom Analytics for my website analytics, which doesn't use cookies and complies with the GDPR, ePrivacy (including PECR), COPPA and CCPA. 
       Using this privacy-friendly website analytics software, your IP address is only briefly processed, and I have no way of identifying you. 
       As per the CCPA, your personal information is de-identified. You can read more about this on <a href="https://usefathom.com/compliance" target="_blank"
         title="Fathom Analytics" rel="noopener noreferrer">Fathom Analytics' website</a>.
     </p>
-    <p class="fine-print">
+    <p class="text-2xs leading-3 italic">
       The purpose of me using this software is to understand my website traffic in the most privacy-friendly way possible so that I can continually improve my website. 
       The lawful basis as per the GDPR is "f); where our legitimate interests are to improve our website and business continually." As per the explanation, no personal data is stored over time.
     </p>
-    <p class="fine-print">
+    <p class="text-2xs leading-3 italic">
       <a
         href="https://usefathom.com/ref/SACEEW"
         target="_blank"
