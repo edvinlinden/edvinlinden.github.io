@@ -8,417 +8,23 @@
     <meta name="copyright" content="© Copyright 2020 to Present"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
-      /* cyrillic-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWtE6FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-      }
-      /* cyrillic */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWvU6FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      /* greek-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWtU6FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-      /* greek */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuk6FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-      /* hebrew */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWu06FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
-      }
-      /* vietnamese */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWtk6FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-      }
       /* latin-ext */
       @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWt06FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-      }
-      /* latin */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6FxZCJgg.woff2") format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      /* cyrillic-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWtE6FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-      }
-      /* cyrillic */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWvU6FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      /* greek-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWtU6FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-      /* greek */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuk6FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-      /* hebrew */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWu06FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
-      }
-      /* vietnamese */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWtk6FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-      }
-      /* latin-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWt06FxZCJgvAQ.woff2") format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-      }
-      /* latin */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: italic;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6FxZCJgg.woff2") format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      /* cyrillic-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-      }
-      /* cyrillic */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      /* greek-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-      /* greek */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-      /* hebrew */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
-      }
-      /* vietnamese */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-      }
-      /* latin-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-      }
-      /* latin */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 300;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2") format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      /* cyrillic-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-      }
-      /* cyrillic */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      /* greek-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-      /* greek */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-      /* hebrew */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
-      }
-      /* vietnamese */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-      }
-      /* latin-ext */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2") format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-      }
-      /* latin */
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 600;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2") format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      /* cyrillic-ext */
-      @font-face {
-        font-family: 'Rubik';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nMrXyw023e1Ik.woff2") format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-      }
-      /* cyrillic */
-      @font-face {
-        font-family: 'Rubik';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nFrXyw023e1Ik.woff2") format('woff2');
-        unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      /* hebrew */
-      @font-face {
-        font-family: 'Rubik';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nDrXyw023e1Ik.woff2") format('woff2');
-        unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
-      }
-      /* latin-ext */
-      @font-face {
-        font-family: 'Rubik';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nPrXyw023e1Ik.woff2") format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-      }
-      /* latin */
-      @font-face {
-        font-family: 'Rubik';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nBrXyw023e.woff2") format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      /* cyrillic-ext */
-      @font-face {
-        font-family: 'Rubik';
+        font-family: 'Sora';
         font-style: normal;
         font-weight: 700;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nMrXyw023e1Ik.woff2") format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-      }
-      /* cyrillic */
-      @font-face {
-        font-family: 'Rubik';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nFrXyw023e1Ik.woff2") format('woff2');
-        unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      /* hebrew */
-      @font-face {
-        font-family: 'Rubik';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nDrXyw023e1Ik.woff2") format('woff2');
-        unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
-      }
-      /* latin-ext */
-      @font-face {
-        font-family: 'Rubik';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nPrXyw023e1Ik.woff2") format('woff2');
+        font-display: fallback;
+        src: url("/fonts/sora-ext.woff") format('woff');
         unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
       }
       /* latin */
       @font-face {
-        font-family: 'Rubik';
+        font-family: 'Sora';
         font-style: normal;
         font-weight: 700;
-        font-display: swap;
-        src: url("https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nBrXyw023e.woff2") format('woff2');
+        font-display: fallback;
+        src: url("/fonts/sora.woff") format('woff');
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
     </style>
@@ -434,10 +40,12 @@
   <body>
     <main class="w-full mx-auto my-0 px-6 md:w-[720px] md:px-0">
       <div class="flex flex-col md:flex-row justify-between items-center mb-16">
-    <a href="/" class="font-heading text-2xl no-underline">Edvin Lindén</a>
-    <div>
+    <a href="/" class="font-heading text-2xl no-underline font-bold hover:font-bold text-stone-800 dark:text-stone-300">Edvin Lindén</a>
+    <div class="mt-8 md:mt-0">
         
-        <a href="/writing" class="font-heading no-underline">Writing</a>
+        <a href="/" class="font-heading no-underline mr-4 font-bold hover:font-bold text-stone-800 dark:text-stone-300">home</a>
+        <a href="/writing" class="font-heading no-underline font-bold hover:font-bold text-stone-800 dark:text-stone-300">writing</a>
+        
     </div>
 </div>
 
@@ -448,64 +56,34 @@
 <p>I believe that privacy should be protected. The best way to protect it is to share as little as possible. In order for me to operate the app and for you to use it there's no need to share any personal information. It's <em>just</em> a timer after all.</p>
 
 
-<footer class="mt-8">
-  <div class="flex justify-between w-[300px] h-[32px] my-20 mx-auto text-slate-300 dark:text-slate-800">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-rock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-hand-rock fa-w-16 fa-3x">
-      <path fill="currentColor" d="M464.8 80c-26.9-.4-48.8 21.2-48.8 48h-8V96.8c0-26.3-20.9-48.3-47.2-48.8-26.9-.4-48.8 21.2-48.8 48v32h-8V80.8c0-26.3-20.9-48.3-47.2-48.8-26.9-.4-48.8 21.2-48.8 48v48h-8V96.8c0-26.3-20.9-48.3-47.2-48.8-26.9-.4-48.8 21.2-48.8 48v136l-8-7.1v-48.1c0-26.3-20.9-48.3-47.2-48.8C21.9 127.6 0 149.2 0 176v66.4c0 27.4 11.7 53.5 32.2 71.8l111.7 99.3c10.2 9.1 16.1 22.2 16.1 35.9v6.7c0 13.3 10.7 24 24 24h240c13.3 0 24-10.7 24-24v-2.9c0-12.8 2.6-25.5 7.5-37.3l49-116.3c5-11.8 7.5-24.5 7.5-37.3V128.8c0-26.3-20.9-48.4-47.2-48.8z" class=""></path>
-    </svg>
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-paper" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-hand-paper fa-w-14 fa-3x">
-      <path fill="currentColor" d="M408.781 128.007C386.356 127.578 368 146.36 368 168.79V256h-8V79.79c0-22.43-18.356-41.212-40.781-40.783C297.488 39.423 280 57.169 280 79v177h-8V40.79C272 18.36 253.644-.422 231.219.007 209.488.423 192 18.169 192 40v216h-8V80.79c0-22.43-18.356-41.212-40.781-40.783C121.488 40.423 104 58.169 104 80v235.992l-31.648-43.519c-12.993-17.866-38.009-21.817-55.877-8.823-17.865 12.994-21.815 38.01-8.822 55.877l125.601 172.705A48 48 0 0 0 172.073 512h197.59c22.274 0 41.622-15.324 46.724-37.006l26.508-112.66a192.011 192.011 0 0 0 5.104-43.975V168c.001-21.831-17.487-39.577-39.218-39.993z" class=""></path>
-    </svg>
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-scissors" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-hand-scissors fa-w-16 fa-3x">
-      <path fill="currentColor" d="M216 440c0-22.092 17.909-40 40-40v-8h-32c-22.091 0-40-17.908-40-40s17.909-40 40-40h32v-8H48c-26.51 0-48-21.49-48-48s21.49-48 48-48h208v-13.572l-177.551-69.74c-24.674-9.694-36.818-37.555-27.125-62.228 9.693-24.674 37.554-36.817 62.228-27.124l190.342 74.765 24.872-31.09c12.306-15.381 33.978-19.515 51.081-9.741l112 64A40.002 40.002 0 0 1 512 168v240c0 18.562-12.77 34.686-30.838 38.937l-136 32A39.982 39.982 0 0 1 336 480h-80c-22.091 0-40-17.908-40-40z" class=""></path>
-    </svg>
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-lizard" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-hand-lizard fa-w-18 fa-3x">
-      <path fill="currentColor" d="M384 480h192V363.778a95.998 95.998 0 0 0-14.833-51.263L398.127 54.368A48 48 0 0 0 357.544 32H24C10.745 32 0 42.745 0 56v16c0 30.928 25.072 56 56 56h229.981c12.844 0 21.556 13.067 16.615 24.923l-21.41 51.385A32 32 0 0 1 251.648 224H128c-35.346 0-64 28.654-64 64v8c0 13.255 10.745 24 24 24h147.406a47.995 47.995 0 0 1 25.692 7.455l111.748 70.811A24.001 24.001 0 0 1 384 418.539V480z" class=""></path>
-    </svg>
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-spock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-hand-spock fa-w-16 fa-3x">
-      <path fill="currentColor" d="M510.9005,145.27027,442.604,432.09391A103.99507,103.99507,0,0,1,341.43745,512H214.074a135.96968,135.96968,0,0,1-93.18489-36.95291L12.59072,373.12723a39.992,39.992,0,0,1,54.8122-58.24988l60.59342,57.02528v0a283.24849,283.24849,0,0,0-11.6703-80.46734L73.63726,147.36011a40.00575,40.00575,0,1,1,76.71833-22.7187l37.15458,125.39477a8.33113,8.33113,0,0,0,16.05656-4.4414L153.26183,49.95406A39.99638,39.99638,0,1,1,230.73015,30.0166l56.09491,218.15825a10.42047,10.42047,0,0,0,20.30018-.501L344.80766,63.96966a40.052,40.052,0,0,1,51.30245-30.0893c19.86073,6.2998,30.86262,27.67378,26.67564,48.08487l-33.83869,164.966a7.55172,7.55172,0,0,0,14.74406,3.2666l29.3973-123.45874a39.99414,39.99414,0,1,1,77.81208,18.53121Z" class=""></path>
-    </svg>
-  </div>
-  <div>
-    <p class="text-center mb-12">
-      Edvin Lindén &nbsp;–&nbsp; 
+<footer class="mt-24 pt-8 border-t-[1px] border-stone-300 dark:border-stone-800">
+    <div>
+        <p class="text-center mb-12 text-stone-300 dark:text-stone-800">
+            <a
+          href="/privacy"
+          title="Privacy"
+          class="no-underline font-heading"
+          >privacy</a
+        >
+        &nbsp;•&nbsp;
         <a
           href="mailto:hello@edvinlinden.se"
           target="_blank"
           title="Email"
           rel="noopener noreferrer"
-          class="no-underline"
-          >Email</a
+          class="no-underline font-heading"
+          >email</a
         >
-        ·
+        &nbsp;•&nbsp;
         <a
               href="https://www.linkedin.com/in/edvin-linden"
               target="_blank"
               title="LinkedIn"
               rel="noopener noreferrer"
-              class="no-underline"
-              >LinkedIn</a>
-    </p>
-    <p class="text-2xs leading-3 italic mt-8">
-      I want to process as little personal information as possible when you use my website. 
-      That's why I've chosen Fathom Analytics for my website analytics, which doesn't use cookies and complies with the GDPR, ePrivacy (including PECR), COPPA and CCPA. 
-      Using this privacy-friendly website analytics software, your IP address is only briefly processed, and I have no way of identifying you. 
-      As per the CCPA, your personal information is de-identified. You can read more about this on <a href="https://usefathom.com/compliance" target="_blank"
-        title="Fathom Analytics" rel="noopener noreferrer">Fathom Analytics' website</a>.
-    </p>
-    <p class="text-2xs leading-3 italic">
-      The purpose of me using this software is to understand my website traffic in the most privacy-friendly way possible so that I can continually improve my website. 
-      The lawful basis as per the GDPR is "f); where our legitimate interests are to improve our website and business continually." As per the explanation, no personal data is stored over time.
-    </p>
-    <p class="text-2xs leading-3 italic">
-      <a
-        href="https://usefathom.com/ref/SACEEW"
-        target="_blank"
-        title="Get a $10 credit for Fathom Analytics by using my referral link"
-        rel="noopener noreferrer"
-        >Get a $10 credit for Fathom Analytics by using my referral link</a>
-    </p>
-  </div>
+              class="no-underline font-heading"
+              >linkedin</a>
+        </p>
+    </div>
 </footer>
 </main>
 </body>

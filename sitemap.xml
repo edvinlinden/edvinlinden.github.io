@@ -2,26 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://edvinlinden.se/</loc>
-    <lastmod>2022-01-15</lastmod>
+    <lastmod>2022-01-27</lastmod>
   </url>
   <url>
     <loc>https://edvinlinden.se/writing/</loc>
-    <lastmod>2021-11-10</lastmod>
+    <lastmod>2022-01-27</lastmod>
   </url>
   <url>
     <loc>https://edvinlinden.se/writing/what-i-learned-by-launching-my-first-app/</loc>
-    <lastmod>2021-11-10</lastmod>
+    <lastmod>2022-01-27</lastmod>
+  </url>
+  <url>
+    <loc>https://edvinlinden.se/the-impossible-safe/</loc>
+    <lastmod>2022-01-27</lastmod>
   </url>
   <url>
     <loc>https://edvinlinden.se/the-impossible-safe/privacy</loc>
-    <lastmod>2021-11-10</lastmod>
+    <lastmod>2022-01-27</lastmod>
   </url>
   <url>
     <loc>https://edvinlinden.se/the-box-timer/</loc>
-    <lastmod>2022-01-15</lastmod>
+    <lastmod>2022-01-27</lastmod>
   </url>
   <url>
     <loc>https://edvinlinden.se/the-box-timer/privacy-policy</loc>
-    <lastmod>2021-11-10</lastmod>
+    <lastmod>2022-01-27</lastmod>
+  </url>
+  <url>
+    <loc>https://edvinlinden.se/privacy/</loc>
+    <lastmod>2022-01-27</lastmod>
   </url>
 </urlset>
