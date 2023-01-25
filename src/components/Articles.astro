@@ -1,0 +1,37 @@
+---
+import { formatDate } from "utils";
+import Wrap from "./Wrap.astro";
+
+export interface Props {
+  headline: string;
+  articles: any;
+}
+
+const { headline, articles } = Astro.props;
+---
+
+<Wrap cls="pt-24 pb-8 bg-amber-200 text-neutral-700">
+  <h2 class="text-neutral-900 mt-0 mb-8">{headline}</h2>
+  <div class="flex flex-col justify-between">
+    {
+      articles.map((article: any) => (
+        <div class="flex flex-col mb-8">
+          <a
+            href={article.url}
+            class="no-underline hover:decoration-4 decoration-amber-700"
+          >
+            <h3 class="mt-0 mb-2 text-2xl text-neutral-900">
+              {article.frontmatter.title}
+            </h3>
+          </a>
+          <div class="mb-4 text-xs text-amber-700">
+            <span class="mr-2">{formatDate(article.frontmatter.date)}</span>⋅
+            <span class="ml-2">
+              {article.frontmatter.readingTime} reading time
+            </span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Wrap>

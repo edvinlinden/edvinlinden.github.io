@@ -1,0 +1,121 @@
+---
+import Articles from "@components/Articles.astro";
+import Wrap from "@components/Wrap.astro";
+import { formatDate } from "utils";
+import FirstPage from "../layouts/FirstPage.astro";
+
+const articles = await Astro.glob("./writing/*.md");
+---
+
+<FirstPage
+  title="Home"
+  description="Edvin Lindén is a Product Manager at Fortnox that spends his time outside work creating things for digital devices."
+>
+  <Wrap cls="mt-16 mb-24">
+    <div
+      class="font-heading text-5xl text-neutral-800 dark:text-neutral-200 mb-8"
+    >
+      Hi there! 👋
+    </div>
+    <h1 class="font-sans font-normal text-2xl inline m-0">
+      I work as a product leader at <a
+        href="https://fortnox.se"
+        target="_blank"
+        title="Fortnox"
+        rel="noopener noreferrer">Fortnox</a
+      >, however this is a place for my side projects.
+    </h1>
+  </Wrap>
+  <Wrap cls="pb-24 pt-16 bg-pink-200">
+    <h2 class="mb-8 text-neutral-900">Highlights</h2>
+    <div class="mb-12">
+      <a
+        href="https://killedby.tech/?ref=edvinlinden.se"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="no-underline hover:decoration-4 decoration-pink-700"
+      >
+        <h3 class="mt-0 mb-2 text-2xl text-neutral-900 dark:text-neutral-900">
+          Killedby.tech
+        </h3>
+      </a>
+      <div class="mb-4 text-xs text-pink-700">
+        <span class="mr-2">Website</span>
+        <span>⋅</span>
+        <span class="ml-2">2022</span>
+      </div>
+      <p class="text-neutral-700">
+        We all know about the Google Graveyard, the list of products that Google
+        have discontinued through the years.
+      </p>
+      <p class="text-neutral-700">
+        While stumbling over a graveyard dedicated for Microsoft I was inspired
+        to create a page where discontinued products from all major tech
+        companies where listed.
+      </p>
+    </div>
+    <div class="mb-12">
+      <a
+        href="/the-impossible-safe/"
+        class="no-underline hover:decoration-4 decoration-pink-700"
+      >
+        <h3 class="mt-0 mb-2 text-2xl text-neutral-900 dark:text-neutral-900">
+          The Impossible Safe
+        </h3>
+      </a>
+      <div class="mb-4 text-xs text-pink-700">
+        <span class="mr-2">iOS App</span>
+        <span>⋅</span>
+        <span class="ml-2">2021</span>
+      </div>
+      <p class="text-neutral-700">
+        A safe cracking game for iPhone inspired by the Apple Watch game Break
+        This Safe from Rafael Conde.
+      </p>
+      <p class="text-neutral-700">
+        The project was my second one using Swift and it's based around the
+        haptic feedback in the iPhone. By feeling different vibrations you'll be
+        able to find the correct combination to the safe.
+      </p>
+    </div>
+    <div>
+      <a
+        href="https://boxtimer.app/?ref=edvinlinden.se"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="no-underline hover:decoration-4 decoration-pink-700"
+      >
+        <h3 class="mt-0 mb-2 text-2xl text-neutral-900 dark:text-neutral-900">
+          Box Timer – Workout Timer
+        </h3>
+      </a>
+      <div class="mb-4 text-xs text-pink-700">
+        <span class="mr-2">iOS App</span>
+        <span>⋅</span>
+        <span class="ml-2">2021</span>
+      </div>
+      <p class="text-neutral-700">
+        2020 was a strange year to say the least, it forced a lot of us to
+        workout at home or outside. Due to the situation I went looking for a
+        good workout timer to keep track of my workouts.
+      </p>
+      <p class="text-neutral-700">
+        All the apps I tested was either too complicated, bloated with features
+        or had way too many ads(let's face it, no one likes ads). So I took it
+        upon myself to create a simple workout timer, free from ads and
+        unnecessary features.
+      </p>
+    </div>
+  </Wrap>
+  <Articles
+    headline="Latest writings"
+    articles={articles
+      .sort((a, b) => {
+        return (
+          new Date(b.frontmatter.date).valueOf() -
+          new Date(a.frontmatter.date).valueOf()
+        );
+      })
+      .slice(0, 3)}
+  />
+</FirstPage>

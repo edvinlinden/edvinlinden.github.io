@@ -1,0 +1,13 @@
+---
+export interface Props {
+  cls?: string;
+}
+
+const { cls } = Astro.props;
+---
+
+<div class={cls}>
+  <div class="w-full mx-auto my-0 px-6 md:w-[720px] md:px-0 font-sans">
+    <slot />
+  </div>
+</div>
