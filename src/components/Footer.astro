@@ -1,6 +1,8 @@
 ---
 import GoodbyeOverlay from "@components/GoodbyeOverlay.astro";
 import Wrap from "@components/Wrap.astro";
+
+const disableTracking = import.meta.env.DEV;
 ---
 
 <Wrap cls="py-6">
@@ -39,9 +41,12 @@ import Wrap from "@components/Wrap.astro";
 </Wrap>
 <GoodbyeOverlay />
 
-<script
-  src="https://cdn.usefathom.com/script.js"
-  data-site="CIYVRBZT"
-  is:inline
-  defer
-></script>
+{
+  disableTracking ? null : (
+    <script
+      src="https://cdn.usefathom.com/script.js"
+      data-site="RFZSCRLZ"
+      defer
+    />
+  )
+}
