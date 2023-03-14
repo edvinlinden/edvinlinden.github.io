@@ -36,10 +36,10 @@
     @apply mb-24;
 
     animation: fade-in 1000ms ease-in-out;
-    
-    blockquote {
-      @apply pl-4 border-l-4 border-neutral-300 dark:border-neutral-500 text-neutral-500;
-    }
+  }
+  
+  blockquote {
+    @apply pl-4 border-l-4 border-neutral-300 dark:border-neutral-500 text-neutral-500;
   }
 
   main {
