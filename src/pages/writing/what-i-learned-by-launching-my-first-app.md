@@ -4,7 +4,7 @@ title: What I learned by launching my first app
 description: The story about what I learned by launching my first app – The Box Timer.
 date: 2021-07-10
 tags: ["articles"]
-image: /the-box-timer/app-preview-1.webp
+image: /images/the-box-timer/app-preview-1.webp
 readingTime: 5 minutes
 ---
 
