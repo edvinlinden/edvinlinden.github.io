@@ -4,7 +4,7 @@ title: The Product Kata – How to solve the right problems, faster
 description: My take on the Product Kata by Melissa Perri, a framework to helps us take small steps to learn about our customer's needs, and start solving their problems faster.
 date: 2022-07-04
 tags: ["articles"]
-image: /writing/the-product-kata-og.png
+image: /images/writing/the-product-kata-og.png
 readingTime: 2 minutes
 ---
 

@@ -4,7 +4,7 @@ title: Be polite, say goodbye!
 description: Offboard your visitors the right way, say goodbye or thank them for their visit.
 date: 2022-01-31
 tags: ["articles"]
-image: /goodbye/goodbye.webp
+image: /images/goodbye/goodbye.webp
 readingTime: 2 minutes
 ---
 

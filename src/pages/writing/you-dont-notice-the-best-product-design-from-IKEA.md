@@ -4,7 +4,7 @@ title: You don't notice the best product design from IKEA
 description: Why the design of a product that you don't see is so important.
 date: 2022-03-07
 tags: ["articles"]
-image: /writing/vidga-hooks.png
+image: /images/writing/vidga-hooks.png
 readingTime: 1 minute
 ---
 
