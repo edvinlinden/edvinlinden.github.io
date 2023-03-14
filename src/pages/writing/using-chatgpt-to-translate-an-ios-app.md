@@ -20,11 +20,11 @@ The prompt goes something like
 > Translate "Edit Timer" to Spanish, German, French, Swedish and Polish
 
 And the output I get is translated and ready to be put into the lanuage files.
-> Spanish: "Editar temporizador"
-> German: "Timer bearbeiten"
-> French: "Modifier le minuteur"
-> Swedish: "Redigera timer"
-> Polish: "Edytuj timer"
+> Spanish: "Editar temporizador"<br />
+German: "Timer bearbeiten"<br />
+French: "Modifier le minuteur"<br />
+Swedish: "Redigera timer"<br />
+Polish: "Edytuj timer"
 
 ChatGPT and Google Translate don't always agree and I can't rely on either of them if I want perfect translations. But for this applicaton it's more than good enough.
 
