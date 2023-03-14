@@ -4,7 +4,7 @@ title: Using ChatGPT to translate an iOS app
 description: How I used ChatGPT to translate an iOS app faster than using Google Translate.
 date: 2023-03-14
 tags: ["articles"]
-image: /writing/chatgpt-translation.png
+image: /images/writing/chatgpt-translation.png
 readingTime: 2 minutes
 ---
 
