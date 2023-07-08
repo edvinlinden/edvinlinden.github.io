@@ -1,13 +1,14 @@
 ---
 export interface Props {
   cls?: string;
+  innerCls?: string;
 }
 
-const { cls } = Astro.props;
+const { cls, innerCls } = Astro.props;
 ---
 
-<div class={cls}>
-  <div class="w-full mx-auto my-0 px-6 md:w-[720px] md:px-0 font-sans">
+<div class={`${cls}`}>
+  <div class={`w-full mx-auto my-0 px-4 md:px-12 font-sans ${innerCls}`}>
     <slot />
   </div>
 </div>

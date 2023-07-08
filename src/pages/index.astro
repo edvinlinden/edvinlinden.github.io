@@ -3,6 +3,7 @@ import Articles from "@components/Articles.astro";
 import Wrap from "@components/Wrap.astro";
 import { formatDate } from "utils";
 import FirstPage from "../layouts/FirstPage.astro";
+import Divider from "@components/Divider.astro";
 
 const articles = await Astro.glob("./writing/*.md");
 ---
@@ -11,101 +12,135 @@ const articles = await Astro.glob("./writing/*.md");
   title="Home"
   description="Edvin Lindén is a Product Manager at Fortnox that spends his time outside work creating things for digital devices."
 >
-  <Wrap cls="mt-16 mb-24">
-    <div
-      class="font-heading text-5xl text-neutral-800 dark:text-neutral-200 mb-8"
+  <Wrap
+    cls="flex items-end h-[60vh] min-h-[60vh] mt-8 mb-16 md:mt-16 md:mb-24 overflow-x-clip"
+    innerCls="relative"
+  >
+    <img
+      class="opacity-0 animate-portrait-rotate transition-all rounded-xl absolute bottom-44 md:bottom-40 lg:bottom-48 2xl:bottom-auto 2xl:top-80 left-0 md:left-auto md:right-16 2xl:right-auto 2xl:left-16 z-50 drop-shadow-2xl"
+      src="/images/edvin-mini-compressed.webp"
+      alt="Photograph of Edvin Lindén"
+    />
+    <h1
+      class="font-heading text-4xl md:text-6xl lg:7xl xl:text-8xl text-neutral-900 mb-8 tracking-tight font-black opacity-0 animate-fade-in relative z-0"
     >
-      Hi there! 👋
-    </div>
-    <h1 class="font-sans font-normal text-2xl inline m-0">
-      I work as a product leader at <a
-        href="https://fortnox.se"
-        target="_blank"
-        title="Fortnox"
-        rel="noopener noreferrer">Fortnox</a
-      >, however this is a place for my side projects.
+      Product Leader <br />& App Developer
     </h1>
   </Wrap>
-  <Wrap cls="pb-24 pt-16 bg-pink-200">
-    <h2 class="mb-8 text-neutral-900">Highlights</h2>
-    <div class="mb-12">
-      <a
-        href="https://killedby.tech/?ref=edvinlinden.se"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="no-underline hover:decoration-4 decoration-pink-700"
-      >
-        <h3 class="mt-0 mb-2 text-2xl text-neutral-900 dark:text-neutral-900">
-          Killedby.tech
-        </h3>
-      </a>
-      <div class="mb-4 text-xs text-pink-700">
-        <span class="mr-2">Website</span>
-        <span>⋅</span>
-        <span class="ml-2">2022</span>
-      </div>
-      <p class="text-neutral-700">
-        We all know about the Google Graveyard, the list of products that Google
-        have discontinued through the years.
-      </p>
-      <p class="text-neutral-700">
-        While stumbling over a graveyard dedicated for Microsoft I was inspired
-        to create a page where discontinued products from all major tech
-        companies where listed.
-      </p>
+  <Wrap>
+    <Divider text="Highlights" />
+  </Wrap>
+
+  <Wrap cls="pt-24 pb-12">
+    <div
+      class="highlightImage bg-[url('/images/killedbytech-2023-compressed.webp')] bg-cover bg-center w-full h-[300px] md:h-[700px] rounded-xl opacity-0 transition-all duration-500 delay-200"
+    >
     </div>
-    <div class="mb-12">
-      <a
-        href="/the-impossible-safe/"
-        class="no-underline hover:decoration-4 decoration-pink-700"
+    <div class="flex flex-col-reverse md:flex-row my-12">
+      <div
+        class="flex flex-col justify-start min-w-[150px] md:min-w-[20%] mr-8 pt-2 gap-4 uppercase tracking-wider font-heading font-black text-neutral-800"
       >
-        <h3 class="mt-0 mb-2 text-2xl text-neutral-900 dark:text-neutral-900">
-          The Impossible Safe
-        </h3>
-      </a>
-      <div class="mb-4 text-xs text-pink-700">
-        <span class="mr-2">iOS App</span>
-        <span>⋅</span>
-        <span class="ml-2">2021</span>
+        <div class="flex items-center justify-end md:justify-start">2022</div>
+        <div class="flex items-center justify-end md:justify-start">
+          Website
+        </div>
       </div>
-      <p class="text-neutral-700">
-        A safe cracking game for iPhone inspired by the Apple Watch game Break
-        This Safe from Rafael Conde.
-      </p>
-      <p class="text-neutral-700">
-        The project was my second one using Swift and it's based around the
-        haptic feedback in the iPhone. By feeling different vibrations you'll be
-        able to find the correct combination to the safe.
-      </p>
+      <div class="">
+        <a
+          href="https://killedby.tech/?ref=edvinlinden.se"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="no-underline hover:decoration-2 uppercase"
+        >
+          <h2 class="mt-0 mb-2 text-2xl">Killedby.tech</h2>
+        </a>
+        <p>
+          We all know about the Google Graveyard, the list of products that
+          Google have discontinued through the years.
+        </p>
+        <p>
+          While stumbling over a graveyard dedicated for Microsoft I was
+          inspired to create a page where discontinued products from all major
+          tech companies where listed.
+        </p>
+      </div>
+      <div class="md:min-w-[20%]"></div>
     </div>
-    <div>
-      <a
-        href="https://boxtimer.app/?ref=edvinlinden.se"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="no-underline hover:decoration-4 decoration-pink-700"
+  </Wrap>
+
+  <Wrap cls="py-12">
+    <div
+      class="highlightImage bg-[url('/images/theimpossiblesafe-2023-compressed.webp')] bg-cover bg-center w-full h-[300px] md:h-[700px] rounded-xl opacity-0 transition-all duration-500 delay-200"
+    >
+    </div>
+    <div class="flex flex-col-reverse md:flex-row my-12">
+      <div
+        class="flex flex-col justify-start min-w-[150px] md:min-w-[20%] mr-8 pt-2 gap-4 uppercase tracking-wider font-heading font-black text-neutral-800"
       >
-        <h3 class="mt-0 mb-2 text-2xl text-neutral-900 dark:text-neutral-900">
-          Box Timer – Workout Timer
-        </h3>
-      </a>
-      <div class="mb-4 text-xs text-pink-700">
-        <span class="mr-2">iOS App</span>
-        <span>⋅</span>
-        <span class="ml-2">2021</span>
+        <div class="flex items-center justify-end md:justify-start">2022</div>
+        <div class="flex items-center justify-end md:justify-start">
+          iOS App
+        </div>
       </div>
-      <p class="text-neutral-700">
-        2020 was a strange year to say the least, it forced a lot of us to
-        workout at home or outside. Due to the situation I went looking for a
-        good workout timer to keep track of my workouts.
-      </p>
-      <p class="text-neutral-700">
-        All the apps I tested was either too complicated, bloated with features
-        or had way too many ads(let's face it, no one likes ads). So I took it
-        upon myself to create a simple workout timer, free from ads and
-        unnecessary features.
-      </p>
+      <div class="">
+        <a href="/the-impossible-safe/" class="no-underline uppercase">
+          <h2 class="mt-0 mb-2 text-2xl">The Impossible Safe</h2>
+        </a>
+        <p>
+          A safe cracking game for iPhone inspired by the Apple Watch game Break
+          This Safe from Rafael Conde.
+        </p>
+        <p>
+          The project was my second one using Swift and it's based around the
+          haptic feedback in the iPhone. By feeling different vibrations you'll
+          be able to find the correct combination to the safe.
+        </p>
+      </div>
+      <div class="md:min-w-[20%]"></div>
     </div>
+  </Wrap>
+
+  <Wrap cls="pt-12 pb-24">
+    <div
+      class="highlightImage bg-[url('/images/theboxtimer-2023-compressed.webp')] bg-cover bg-center w-full h-[300px] md:h-[700px] rounded-xl opacity-0 transition-all duration-500 delay-200"
+    >
+    </div>
+    <div class="flex flex-col-reverse md:flex-row my-12">
+      <div
+        class="flex flex-col justify-start min-w-[150px] md:min-w-[20%] mr-8 pt-2 gap-4 uppercase tracking-wider font-heading font-black text-neutral-800"
+      >
+        <div class="flex items-center justify-end md:justify-start">2022</div>
+        <div class="flex items-center justify-end md:justify-start">
+          iOS App
+        </div>
+      </div>
+      <div class="">
+        <a
+          href="https://boxtimer.app/?ref=edvinlinden.se"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="no-underline uppercase"
+        >
+          <h2 class="mt-0 mb-2 text-2xl">Box Timer – Workout Timer</h2>
+        </a>
+        <p>
+          2020 was a strange year to say the least, it forced a lot of us to
+          workout at home or outside. Due to the situation I went looking for a
+          good workout timer to keep track of my workouts.
+        </p>
+        <p>
+          All the apps I tested was either too complicated, bloated with
+          features or had way too many ads(let's face it, no one likes ads). So
+          I took it upon myself to create a simple workout timer, free from ads
+          and unnecessary features.
+        </p>
+      </div>
+      <div class="md:min-w-[20%]"></div>
+    </div>
+  </Wrap>
+
+  <Wrap>
+    <Divider text="Latest writings" />
   </Wrap>
   <Articles
     headline="Latest writings"
@@ -118,4 +153,22 @@ const articles = await Astro.glob("./writing/*.md");
       })
       .slice(0, 3)}
   />
+  <script defer>
+    const hightlightImages = document.querySelectorAll(".highlightImage");
+
+    const hightlightImagesCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("opacity-100");
+        }
+      });
+    };
+
+    const hightlightImagesObserver = new IntersectionObserver(
+      hightlightImagesCallback
+    );
+    hightlightImages.forEach((hightlightImage) =>
+      hightlightImagesObserver.observe(hightlightImage)
+    );
+  </script>
 </FirstPage>

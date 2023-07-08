@@ -6,10 +6,13 @@ const disableTracking = import.meta.env.DEV;
 ---
 
 <Wrap cls="py-6">
-  <footer>
+  <footer class="border-t-[1px] border-neutral-300 py-6">
     <div class="flex justify-between mb-16 text-xs">
-      <div class="text-neutral-500 dark:text-neutral-600">
-        <span>&copy; 2023</span>
+      <div class="group text-neutral-500">
+        <span
+          class="inline-block transition-all duration-300 group-hover:rotate-180 group-hover:translate-y-[-1px]"
+          >&copy;</span
+        > 2023
       </div>
       <div>
         <a href="/privacy/" title="Privacy" class="font-lighter no-underline">
@@ -35,6 +38,13 @@ const disableTracking = import.meta.env.DEV;
         >
           LinkedIn
         </a>
+        &nbsp;
+        <a
+          href="/rss.xml"
+          target="_blank"
+          title="RSS Feed"
+          class="font-lighter no-underline">RSS Feed</a
+        >
       </div>
     </div>
   </footer>
