@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://edvinlinden.se/sitemap.xml
+Sitemap: http://edvinlinden.se/sitemap-index.xml
