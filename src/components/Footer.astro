@@ -1,8 +1,7 @@
 ---
 import GoodbyeOverlay from "@components/GoodbyeOverlay.astro";
 import Wrap from "@components/Wrap.astro";
-
-const disableTracking = import.meta.env.DEV;
+import TelemetryDeck from "./TelemetryDeck.astro";
 ---
 
 <Wrap cls="py-6">
@@ -50,13 +49,4 @@ const disableTracking = import.meta.env.DEV;
   </footer>
 </Wrap>
 <GoodbyeOverlay />
-
-{
-  disableTracking ? null : (
-    <script
-      src="https://cdn.usefathom.com/script.js"
-      data-site="CIYVRBZT"
-      defer
-    />
-  )
-}
+<TelemetryDeck />
