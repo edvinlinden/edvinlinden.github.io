@@ -22,7 +22,7 @@ const { title, description, headline } = Astro.props;
   <body class="flex flex-col h-full">
     <Header />
     <main>
-      <Wrap cls="flex flex-col flex-grow" innerCls="flex flex-col items-center">
+      <Wrap cls="flex flex-col grow" innerCls="flex flex-col items-center">
         <div class="w-full md:w-[720px]">
           <h1 class="mb-8">
             {headline ? headline : title}

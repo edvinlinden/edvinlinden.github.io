@@ -1,4 +1,93 @@
-@tailwind base;
+@import 'tailwindcss';
+
+@theme {
+  --font-*: initial;
+  --font-sans: Helvetica, Arial, sans-serif;
+  --font-heading: Geologica, Bakbak One, Helvetica, Arial, sans-serif;
+
+  --text-2xs: 0.65rem;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee2: marquee2 30s linear infinite;
+  --animate-logofirst: logofirst 500ms ease 300ms forwards;
+  --animate-logolast: logolast 500ms ease 300ms forwards;
+  --animate-fade-in-200: fade-in 200ms ease 200ms forwards;
+  --animate-fade-in: fade-in 750ms ease-in-out 200ms forwards;
+  --animate-portrait-rotate: portrait-rotate 400ms ease-in-out 200ms forwards;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes marquee2 {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes logofirst {
+    0% {
+      transform: translateX(25px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes logolast {
+    0% {
+      transform: translateX(25px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(45px);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes portrait-rotate {
+    0% {
+      opacity: 0;
+      transform: rotate(-6deg) translateX(-30%);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(6deg) translateX(0%);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   html {
@@ -47,17 +136,16 @@
   }
 }
 
-@keyframes fade-in-and-up {
-  0% {
-    opacity: 0;
-    transform: translateY(1rem);
-  }
+@layer base {
+  @keyframes fade-in-and-up {
+    0% {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0rem);
+    100% {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
   }
 }
-
-@tailwind components;
-@tailwind utilities;
