@@ -16,6 +16,13 @@ const { title, description } = Astro.props;
 <html lang="en" class="h-full m-0 p-0">
   <head>
     <PageMeta title={title} description={description} />
+    <link
+      rel="preload"
+      fetchpriority="high"
+      as="image"
+      href="/images/edvin-linden-2024.webp"
+      type="image/webp"
+    />
   </head>
   <body class="flex flex-col h-full">
     <Header />
