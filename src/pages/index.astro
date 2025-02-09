@@ -9,7 +9,7 @@ import FirstPage from "@layouts/FirstPage.astro";
   <div class="flex flex-col-reverse md:flex-row justify-between items-center">
     <div class="w-full md:w-[360px] md:pr-6 text-pretty">
       <h1
-        class="font-sans font-light text-neutral-500 text-[20px] tracking-normal leading-6"
+        class="font-sans font-light text-neutral-500 text-[20px] tracking-normal leading-6 mt-4"
       >
         Hi, my name is Edvin and I am a product leader living in Sweden.
       </h1>
@@ -27,10 +27,15 @@ import FirstPage from "@layouts/FirstPage.astro";
         playground to experiment with cool tech.
       </p>
     </div>
-    <div
-      class="bg-[url(/images/edvin-linden-2024.webp)] bg-cover bg-center mx-auto w-full sm:w-[400x] md:w-[360px] h-[480px] md:h-[450px] rounded-xl"
+    <picture
+      class="relative w-full sm:w-[400x] md:w-[360px] h-[480px] sm:h-[600px] md:h-[450px] mx-auto mb-8 md:mb-0"
     >
-    </div>
+      <img
+        class="absolute top-0 bottom-0 left-0 right-0 w-full h-full object-cover rounded-xl"
+        src="/images/edvin-linden-2024.webp"
+        loading="lazy"
+      />
+    </picture>
   </div>
   <div class="mt-24">
     <h2 class="mb-16" id="projects">Projects</h2>
