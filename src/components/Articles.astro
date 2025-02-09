@@ -10,26 +10,26 @@ export interface Props {
 const { headline, articles } = Astro.props;
 ---
 
-<Wrap cls="pt-24 pb-12" innerCls="flex flex-col items-center">
-  <div class="flex flex-col justify-between w-full md:w-[720px]">
+<Wrap cls="pt-24 pb-12">
+  <div class="flex flex-col justify-between">
     {
       articles.map((article: any) => (
-        <>
-          <div class="flex flex-col mb-8">
-            <a
-              href={article.url}
-              class="no-underline hover:decoration-4 grow"
-            >
-              <h2 class="mt-0 mb-2 text-xl">{article.frontmatter.title}</h2>
-            </a>
-            <div class="flex flex-row text-xs text-left text-neutral-500">
-              <span class="mr-2">{formatDate(article.frontmatter.date)}</span>⋅
-              <span class="ml-2">
-                {article.frontmatter.readingTime} reading time
-              </span>
-            </div>
+        <div class="flex flex-col mb-4 pb-4 border-b-1">
+          <a
+            href={article.url}
+            class="no-underline hover:decoration-4 grow flex flex-col md:flex-row md:items-center justify-between"
+          >
+            <h2 class="mt-0 mb-2 text-base hover:text-sky-500">
+              {article.frontmatter.title}
+            </h2>
+          </a>
+          <div class="flex flex-row text-xs text-left text-neutral-500">
+            <span class="mr-2">{formatDate(article.frontmatter.date)}</span>⋅
+            <span class="ml-2">
+              {article.frontmatter.readingTime} reading time
+            </span>
           </div>
-        </>
+        </div>
       ))
     }
   </div>

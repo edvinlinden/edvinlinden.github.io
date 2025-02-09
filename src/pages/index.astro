@@ -1,174 +1,116 @@
 ---
-import Articles from "@components/Articles.astro";
-import Wrap from "@components/Wrap.astro";
-import { formatDate } from "utils";
-import FirstPage from "../layouts/FirstPage.astro";
-import Divider from "@components/Divider.astro";
-
-const articles = await Astro.glob("./writing/*.md");
+import FirstPage from "@layouts/FirstPage.astro";
 ---
 
 <FirstPage
   title="Home"
-  description="Edvin Lindén is a Product Manager at Fortnox that spends his time outside work creating things for digital devices."
+  description="Edvin Lindén is a Product Leader at Fortnox that spends his time outside work creating things for digital devices."
 >
-  <Wrap
-    cls="flex items-end h-[60vh] min-h-[60vh] mt-8 mb-16 md:mt-16 md:mb-24 overflow-x-clip"
-    innerCls="relative"
+  <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+    <div class="w-full md:w-[360px] md:pr-6 text-pretty">
+      <h1
+        class="font-sans font-light text-neutral-500 text-[20px] tracking-normal leading-6"
+      >
+        Hi, my name is Edvin and I am a product leader living in Sweden.
+      </h1>
+      <p>
+        I am currently working with customer experience at
+        <a
+          href="https://fortnox.se"
+          target="_blank"
+          title="Fortnox"
+          rel="noopener noreferrer">{"Fortnox"}</a
+        >, helping businesses become more successful.
+      </p>
+      <p>
+        Aside of my day job I've been developing a few apps and keep this as a
+        playground to experiment with cool tech.
+      </p>
+    </div>
+    <div
+      class="bg-[url(/images/edvin-linden-2024.webp)] bg-cover bg-center mx-auto w-full sm:w-[400x] md:w-[360px] h-[480px] md:h-[450px] rounded-xl"
+    >
+    </div>
+  </div>
+  <div class="mt-24">
+    <h2 class="mb-16" id="projects">Projects</h2>
+  </div>
+  <a
+    href="https://killedby.tech/?ref=edvinlinden.se"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex flex-col md:flex-row no-underline hover:text-neutral-500 rounded-xl hover:bg-neutral-100 md:p-6 mb-8"
   >
-    <img
-      class="opacity-0 animate-portrait-rotate transition-all rounded-xl absolute bottom-44 md:bottom-40 lg:bottom-48 2xl:bottom-60 left-0 md:left-auto md:right-16 2xl:right-auto 2xl:left-[1000px] z-50 drop-shadow-2xl"
-      src="/images/edvin-mini-compressed.webp"
-      alt="Photograph of Edvin Lindén"
-    />
-    <h1
-      class="font-heading text-4xl md:text-6xl lg:7xl xl:text-8xl text-neutral-900 mb-8 tracking-tight font-black opacity-0 animate-fade-in relative z-0"
-    >
-      Product Leader <br />& App Developer
-    </h1>
-  </Wrap>
-  <Wrap>
-    <Divider text="Highlights" />
-  </Wrap>
-
-  <Wrap cls="pt-24 pb-12">
     <div
-      class="highlightImage bg-[url('/images/killedbytech-2023-compressed.webp')] bg-cover bg-center w-full h-[300px] md:h-[700px] rounded-xl opacity-0 transition-all duration-500 delay-200"
+      class="bg-[url('/images/killedbytech-2023-compressed.webp')] bg-cover bg-center w-full md:w-[180px] h-[300px] md:h-[180px] rounded-xl p-4 border border-neutral-300 mb-8 md:mb-0"
     >
     </div>
-    <div class="flex flex-col-reverse md:flex-row my-12">
-      <div
-        class="flex flex-col justify-start min-w-[150px] md:min-w-[20%] mr-8 pt-2 gap-4 uppercase tracking-wider font-heading font-black text-neutral-800"
-      >
-        <div class="flex items-center justify-end md:justify-start">2022</div>
-        <div class="flex items-center justify-end md:justify-start">
-          Website
-        </div>
+    <div class="w-full md:w-[540px] md:pl-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between">
+        <h3 class="my-0 text-[20px]">Killedby.tech</h3>
+        <span class="text-xs font-medium">2022 – 2025 </span>
       </div>
-      <div class="">
-        <a
-          href="https://killedby.tech/?ref=edvinlinden.se"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="no-underline hover:decoration-2 uppercase"
-        >
-          <h2 class="mt-0 mb-2 text-2xl">Killedby.tech</h2>
-        </a>
-        <p>
-          We all know about the Google Graveyard, the list of products that
-          Google have discontinued through the years.
-        </p>
-        <p>
-          While stumbling over a graveyard dedicated for Microsoft I was
-          inspired to create a page where discontinued products from all major
-          tech companies where listed.
-        </p>
-      </div>
-      <div class="md:min-w-[20%]"></div>
+      <p>
+        We all know about the Google Graveyard, the list of products that Google
+        have discontinued through the years.
+      </p>
+      <p>
+        While stumbling over a graveyard dedicated for Microsoft I was inspired
+        to create a page where discontinued products from all major tech
+        companies where listed.
+      </p>
     </div>
-  </Wrap>
-
-  <Wrap cls="py-12">
+  </a>
+  <a
+    href="/the-impossible-safe/"
+    class="flex flex-col md:flex-row no-underline hover:text-neutral-500 rounded-xl hover:bg-neutral-100 md:p-6 mb-8"
+  >
     <div
-      class="highlightImage bg-[url('/images/theimpossiblesafe-2023-compressed.webp')] bg-cover bg-center w-full h-[300px] md:h-[700px] rounded-xl opacity-0 transition-all duration-500 delay-200"
+      class="bg-[url('/images/theimpossiblesafe-2023-compressed.webp')] bg-cover bg-center w-full md:w-[180px] h-[300px] md:h-[180px] rounded-xl p-4 border border-[#0084d1] mb-8 md:mb-0"
     >
     </div>
-    <div class="flex flex-col-reverse md:flex-row my-12">
-      <div
-        class="flex flex-col justify-start min-w-[150px] md:min-w-[20%] mr-8 pt-2 gap-4 uppercase tracking-wider font-heading font-black text-neutral-800"
-      >
-        <div class="flex items-center justify-end md:justify-start">2022</div>
-        <div class="flex items-center justify-end md:justify-start">
-          iOS App
-        </div>
+    <div class="w-full md:w-[540px] md:pl-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between">
+        <h3 class="my-0 text-[20px]">The Impossible Safe</h3>
+        <span class="text-xs font-medium">2022 – 20░░</span>
       </div>
-      <div class="">
-        <a href="/the-impossible-safe/" class="no-underline uppercase">
-          <h2 class="mt-0 mb-2 text-2xl">The Impossible Safe</h2>
-        </a>
-        <p>
-          A safe cracking game for iPhone inspired by the Apple Watch game Break
-          This Safe from Rafael Conde.
-        </p>
-        <p>
-          The project was my second one using Swift and it's based around the
-          haptic feedback in the iPhone. By feeling different vibrations you'll
-          be able to find the correct combination to the safe.
-        </p>
-      </div>
-      <div class="md:min-w-[20%]"></div>
+      <p>
+        A safe cracking game for iPhone inspired by the Apple Watch game Break
+        This Safe from Rafael Conde.
+      </p>
+      <p>
+        The project was my second one using Swift and it's based around the
+        haptic feedback in the iPhone. By feeling different vibrations you'll be
+        able to find the correct combination to the safe.
+      </p>
     </div>
-  </Wrap>
-
-  <Wrap cls="pt-12 pb-24">
+  </a>
+  <a
+    href="https://boxtimer.app/?ref=edvinlinden.se"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex flex-col md:flex-row no-underline hover:text-neutral-500 rounded-xl hover:bg-neutral-100 md:p-6 mb-8"
+  >
     <div
-      class="highlightImage bg-[url('/images/theboxtimer-2023-compressed.webp')] bg-cover bg-center w-full h-[300px] md:h-[700px] rounded-xl opacity-0 transition-all duration-500 delay-200"
+      class="bg-[url('/images/theboxtimer-2023-compressed.webp')] bg-cover bg-center w-full md:w-[180px] h-[300px] md:h-[180px] rounded-xl p-4 mb-8 md:mb-0"
     >
     </div>
-    <div class="flex flex-col-reverse md:flex-row my-12">
-      <div
-        class="flex flex-col justify-start min-w-[150px] md:min-w-[20%] mr-8 pt-2 gap-4 uppercase tracking-wider font-heading font-black text-neutral-800"
-      >
-        <div class="flex items-center justify-end md:justify-start">2022</div>
-        <div class="flex items-center justify-end md:justify-start">
-          iOS App
-        </div>
+    <div class="w-full md:w-[540px] md:pl-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between">
+        <h3 class="my-0 text-[20px]">Box Timer – Workout Timer</h3>
+        <span class="text-xs font-medium">2021 – 20░░</span>
       </div>
-      <div class="">
-        <a
-          href="https://boxtimer.app/?ref=edvinlinden.se"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="no-underline uppercase"
-        >
-          <h2 class="mt-0 mb-2 text-2xl">Box Timer – Workout Timer</h2>
-        </a>
-        <p>
-          2020 was a strange year to say the least, it forced a lot of us to
-          workout at home or outside. Due to the situation I went looking for a
-          good workout timer to keep track of my workouts.
-        </p>
-        <p>
-          All the apps I tested was either too complicated, bloated with
-          features or had way too many ads(let's face it, no one likes ads). So
-          I took it upon myself to create a simple workout timer, free from ads
-          and unnecessary features.
-        </p>
-      </div>
-      <div class="md:min-w-[20%]"></div>
+      <p>
+        2020 was a strange year to say the least, it forced a lot of us to
+        workout at home or outside. Due to the situation I went looking for a
+        good workout timer to keep track of my workouts.
+      </p>
+      <p>
+        All the apps I tested was either too complicated, bloated with features
+        or had way too many ads(let's face it, no one likes ads). So I took it
+        upon myself to create a simple workout timer, free from ads and
+        unnecessary features.
+      </p>
     </div>
-  </Wrap>
-
-  <Wrap>
-    <Divider text="Latest writings" />
-  </Wrap>
-  <Articles
-    headline="Latest writings"
-    articles={articles
-      .sort((a, b) => {
-        return (
-          new Date(b.frontmatter.date).valueOf() -
-          new Date(a.frontmatter.date).valueOf()
-        );
-      })
-      .slice(0, 3)}
-  />
-  <script defer>
-    const hightlightImages = document.querySelectorAll(".highlightImage");
-
-    const hightlightImagesCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("opacity-100");
-        }
-      });
-    };
-
-    const hightlightImagesObserver = new IntersectionObserver(
-      hightlightImagesCallback
-    );
-    hightlightImages.forEach((hightlightImage) =>
-      hightlightImagesObserver.observe(hightlightImage)
-    );
-  </script>
+  </a>
 </FirstPage>

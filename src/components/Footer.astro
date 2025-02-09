@@ -1,52 +1,51 @@
 ---
 import GoodbyeOverlay from "@components/GoodbyeOverlay.astro";
-import Wrap from "@components/Wrap.astro";
 import TelemetryDeck from "./TelemetryDeck.astro";
 ---
 
-<Wrap cls="py-6">
-  <footer class="border-t-[1px] border-neutral-300 py-6">
-    <div class="flex justify-between mb-16 text-xs">
-      <div class="group text-neutral-500">
-        <span
-          class="inline-block transition-all duration-300 group-hover:rotate-180 group-hover:translate-y-[-1px]"
-          >&copy;</span
-        > 2023
-      </div>
-      <div>
-        <a href="/privacy/" title="Privacy" class="font-lighter no-underline">
-          Privacy
-        </a>
-        &nbsp;
-        <a
-          href="mailto:hello@edvinlinden.se"
-          target="_blank"
-          title="Email"
-          rel="noopener noreferrer"
-          class="font-lighter no-underline"
-        >
-          Email
-        </a>
-        &nbsp;
-        <a
-          href="https://www.linkedin.com/in/edvin-linden"
-          target="_blank"
-          title="LinkedIn"
-          rel="noopener noreferrer"
-          class="font-lighter no-underline"
-        >
-          LinkedIn
-        </a>
-        &nbsp;
-        <a
-          href="/rss.xml"
-          target="_blank"
-          title="RSS Feed"
-          class="font-lighter no-underline">RSS Feed</a
-        >
-      </div>
+<footer
+  class="w-full md:w-[720px] mx-auto px-4 md:px-0 border-t-[1px] border-neutral-300 py-6"
+>
+  <div class="flex justify-between mb-16 text-xs">
+    <div class="group text-neutral-500">
+      <span
+        class="inline-block transition-all duration-300 group-hover:rotate-180 group-hover:translate-y-[-1px] cursor-none"
+        >&copy;</span
+      > 2025
     </div>
-  </footer>
-</Wrap>
-<GoodbyeOverlay />
-<TelemetryDeck />
+    <div>
+      <a href="/privacy/" title="Privacy" class="font-lighter no-underline">
+        Privacy
+      </a>
+      &nbsp;
+      <a
+        href="mailto:hello@edvinlinden.se"
+        target="_blank"
+        title="Email"
+        rel="noopener noreferrer"
+        class="font-lighter no-underline"
+      >
+        Email
+      </a>
+      &nbsp;
+      <a
+        href="https://www.linkedin.com/in/edvin-linden"
+        target="_blank"
+        title="LinkedIn"
+        rel="noopener noreferrer"
+        class="font-lighter no-underline"
+      >
+        LinkedIn
+      </a>
+      &nbsp;
+      <a
+        href="/rss.xml"
+        target="_blank"
+        title="RSS Feed"
+        class="font-lighter no-underline">RSS Feed</a
+      >
+    </div>
+  </div>
+  <GoodbyeOverlay />
+  <TelemetryDeck />
+</footer>
