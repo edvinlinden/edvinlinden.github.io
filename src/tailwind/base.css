@@ -1,9 +1,9 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --font-*: initial;
   --font-sans: Helvetica, Arial, sans-serif;
-  --font-heading: Geologica, Bakbak One, Helvetica, Arial, sans-serif;
+  --font-heading: Helvetica, Arial, sans-serif;
 
   --text-2xs: 0.65rem;
 
@@ -109,10 +109,10 @@
     @apply mt-12 mb-4 text-base md:text-lg text-base font-heading font-medium tracking-wide no-underline text-neutral-800;
   }
   a {
-    @apply underline underline-offset-8 decoration-2;
+    @apply underline underline-offset-4 decoration-neutral-500 decoration-dashed decoration-1;
   }
   a:hover {
-    @apply underline underline-offset-8 decoration-2 text-sky-500 decoration-neutral-500;
+    @apply text-sky-500;
   }
   p {
     @apply my-4 text-base;
@@ -123,8 +123,6 @@
 
   article {
     @apply mb-24;
-
-    animation: fade-in-and-up 1000ms ease-in-out;
   }
 
   blockquote {
@@ -133,19 +131,5 @@
 
   main {
     @apply flex flex-col flex grow mb-24;
-  }
-}
-
-@layer base {
-  @keyframes fade-in-and-up {
-    0% {
-      opacity: 0;
-      transform: translateY(1rem);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateY(0rem);
-    }
   }
 }
