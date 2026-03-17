@@ -19,7 +19,8 @@ const { title, description, date, image, readingTime } = frontmatter;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(image, Astro.url);
 
-const articles = await Astro.glob("../pages/writing/*.md");
+const articleFiles = import.meta.glob("../pages/writing/*.md", { eager: true });
+const articles = Object.values(articleFiles);
 ---
 
 <!doctype html>
