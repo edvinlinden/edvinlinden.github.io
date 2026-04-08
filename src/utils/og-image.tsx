@@ -1,12 +1,10 @@
 import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
+import { join } from 'path';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 
-const fontPath = fileURLToPath(
-  new URL('../../public/fonts/geologica-latin.woff2', import.meta.url)
-);
-const fontData = readFileSync(fontPath);
+const fontData400 = readFileSync(join(process.cwd(), 'public/fonts/geologica-latin-400.ttf'));
+const fontData900 = readFileSync(join(process.cwd(), 'public/fonts/geologica-latin-900.ttf'));
 
 function OgTemplate({ title }: { title: string }) {
   return (
@@ -67,8 +65,8 @@ export async function generateOgImage(title: string): Promise<Buffer> {
     width: 1200,
     height: 630,
     fonts: [
-      { name: 'Geologica', data: fontData, weight: 400, style: 'normal' },
-      { name: 'Geologica', data: fontData, weight: 900, style: 'normal' },
+      { name: 'Geologica', data: fontData400, weight: 400, style: 'normal' },
+      { name: 'Geologica', data: fontData900, weight: 900, style: 'normal' },
     ],
   });
 
