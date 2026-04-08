@@ -26,6 +26,7 @@ function OgTemplate({ title }: { title: string }) {
     >
       <div
         style={{
+          display: 'flex',
           fontSize: 20,
           letterSpacing: '0.18em',
           color: '#a3a3a3',
@@ -37,6 +38,7 @@ function OgTemplate({ title }: { title: string }) {
       </div>
       <div
         style={{
+          display: 'flex',
           fontSize: 72,
           fontWeight: 900,
           color: '#171717',
@@ -49,6 +51,7 @@ function OgTemplate({ title }: { title: string }) {
       </div>
       <div
         style={{
+          display: 'flex',
           width: 40,
           height: 3,
           backgroundColor: '#171717',
