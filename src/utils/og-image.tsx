@@ -3,6 +3,9 @@ import { join } from 'path';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 
+// import.meta.url is rewritten by Vite in SSR context and does not reliably
+// resolve to the source-tree path. process.cwd() is stable because Astro
+// always runs from the project root during `astro build`.
 const fontData400 = readFileSync(join(process.cwd(), 'public/fonts/geologica-latin-400.ttf'));
 const fontData900 = readFileSync(join(process.cwd(), 'public/fonts/geologica-latin-900.ttf'));
 
