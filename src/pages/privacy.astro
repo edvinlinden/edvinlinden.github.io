@@ -43,7 +43,11 @@ import Page from "@layouts/Page.astro";
   <p>
     Click below and analytics stops for you on this site. The link saves one opt-out setting in your browser, so it covers this browser on this device. If your browser sends a Global Privacy Control signal, analytics is skipped automatically.
   </p>
-  <a onClick="optOutOfAnalytics()">Opt out of analytics</a>
+  <a href="#" onClick="(function(){
+    localStorage.setItem('telemetryDeck-optout', true);
+    alert("You have now opted out of analytics!");
+    return false;
+    })();return false;">Opt out of analytics</a>
 
   <h2>Hosting</h2>
   <p>
@@ -71,10 +75,4 @@ import Page from "@layouts/Page.astro";
   <p>
     Updates appear here with a new date at the top.
   </p>
-  <script>
-    function optOutOfAnalytics() {
-      localStorage.setItem('telemetryDeck-optout', true);
-      alert("You have now opted out of analytics!");
-    }
-  </script>
 </Page>
