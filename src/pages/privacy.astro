@@ -19,7 +19,7 @@ import Page from "@layouts/Page.astro";
   <p>
     I use TelemetryDeck to see how many people visit this site and which pages they read. When you load a page, this is sent:
   </p>
-  <ul>
+  <ul style="list-style:disc;">
     <li>The page you visited, and the page that referred you</li>
     <li>Your browser, operating system, screen size and language</li>
     <li>Your country, derived from your IP address</li>
@@ -45,7 +45,7 @@ import Page from "@layouts/Page.astro";
   </p>
   <a href="#" onClick="(function(){
     localStorage.setItem('telemetryDeck-optout', true);
-    alert('You have now opted out of analytics!');
+    alert('You have opted out of analytics for this site!');
     return false;
     })();return false;">Opt out of analytics</a>
 
@@ -73,6 +73,6 @@ import Page from "@layouts/Page.astro";
 
   <h2>Changes</h2>
   <p>
-    Updates appear here with a new date at the top.
+    This policy may be updated. Changes are published on this page with a new effective date. 
   </p>
 </Page>
