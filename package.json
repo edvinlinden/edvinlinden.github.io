@@ -11,20 +11,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@aptabase/web": "^0.4.3",
-    "@astrojs/mdx": "^5.0.1",
-    "@astrojs/prefetch": "^0.4.1",
-    "@astrojs/react": "^5.0.0",
-    "@astrojs/rss": "^4.0.18",
-    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
     "@resvg/resvg-js": "^2.6.2",
-    "@tailwindcss/vite": "^4.2.1",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "astro": "^6.4.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^18.3.31",
+    "astro": "^7.2.1",
+    "react": "^18.3.1",
     "satori": "^0.26.0",
-    "tailwindcss": "^4.2.1"
+    "tailwindcss": "^4.3.3"
   }
 }
