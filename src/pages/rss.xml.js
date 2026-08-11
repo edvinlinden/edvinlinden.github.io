@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
 
-export async function get(context) {
+export async function GET(context) {
   const articlesImport = import.meta.glob("./writing/*.md", { eager: true });
   const articles = Object.values(articlesImport);
 
