@@ -9,5 +9,9 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), prefetch()],
   vite: {
     plugins: [tailwindcss()],
+    // resvg-js loads a native .node binary, which esbuild's dep optimizer
+    // cannot bundle. Keep it external so the OG image route works in dev.
+    optimizeDeps: { exclude: ["@resvg/resvg-js"] },
+    ssr: { external: ["@resvg/resvg-js"] },
   },
 });
