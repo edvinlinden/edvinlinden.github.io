@@ -13,4 +13,4 @@ A few days ago when going through <a href="https://dribbble.com/" target="_blank
 So how did he do it? He used a thing we all hate about the web, the <i>"Subscribe for 10% off your next purchase!"</i> popup. Or as we call it in the industry, an exit intent popup. But he used it with no other purpose than to say goodbye, and that's really nice!
 
 I've implemented a version of it on my site as well, you can see how it works by moving your mouse outside of the browser window. If you are reading this on a phone, here is a GIF showing it in action.
-<img src="/images/goodbye/goodbye-preview.gif" width="600" height="385" class="my-8 mx-auto shadow-2lg" alt="GIF showing the goodbye feature on exit intent" />
+<img src="/images/goodbye/goodbye-preview.gif" width="600" height="385" class="my-8 mx-auto shadow-xl" alt="GIF showing the goodbye feature on exit intent" />

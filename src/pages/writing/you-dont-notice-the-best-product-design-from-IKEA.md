@@ -12,7 +12,7 @@ A few weeks ago I bought a set of <a href="https://www.ikea.com/us/en/p/vidga-gl
 
 They did the same thing and fit the same Vidga tracks as before, but sometime in the past year or so the design changed. A subtle change but I bet it's quite a big one for IKEA and it's manufacturers.
 
-<img src="/images/writing/vidga-hooks.png" width="407" height="242" class="mt-8 mb-2 mx-auto shadow-2lg rounded-md" alt="Image of the IKEA Vidga glider with hook" />
+<img src="/images/writing/vidga-hooks.png" width="407" height="242" class="mt-8 mb-2 mx-auto shadow-xl rounded-md" alt="Image of the IKEA Vidga glider with hook" />
 
 <div class="text-xs text-center italic mb-8">Left: Vidga glider with hook late 2020, right: Vidga glider with hook early 2022.</div>
 

@@ -1,38 +1,38 @@
 ---
-import Page from "@layouts/Page.astro";
+import Button from "@components/Button.astro";
+import PageHeader from "@components/PageHeader.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const marquee = Array.from({ length: 6 }, () => "404 — page not found");
 ---
 
-<Page
+<BaseLayout
   title="Page not found"
   description="I'm sorry, but you seem to have come to the wrong place."
 >
-  <p class="text-xl">
-    I'm sorry, but you seem to have come to the wrong place.
-  </p>
-  <p class="text-xl">
-    The page you are looking for have either been moved, deleted or never
-    existed at all.
-  </p>
+  <PageHeader title="Page not found" />
+
+  <div class="prose">
+    <p>I'm sorry, but you seem to have come to the wrong place.</p>
+    <p>
+      The page you are looking for have either been moved, deleted or never
+      existed at all.
+    </p>
+  </div>
+
   <div
-    class="flex whitespace-no-wrap overflow-x-hidden bg-red-600 text-neutral-100 font-heading text-lg absolute top-0 left-0 w-full"
+    class="mt-10 flex overflow-x-hidden rounded-lg bg-ink py-2 text-meta uppercase tracking-widest text-surface"
+    aria-hidden="true"
   >
     <div class="relative">
       <ul class="flex animate-marquee whitespace-nowrap">
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
+        {marquee.map((text) => <li class="mx-4">{text}</li>)}
       </ul>
-      <ul class="flex absolute top-0 animate-marquee2 whitespace-nowrap">
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
-        <li class="mx-4">404 - PAGE NOT FOUND</li>
+      <ul class="absolute top-0 flex animate-marquee2 whitespace-nowrap">
+        {marquee.map((text) => <li class="mx-4">{text}</li>)}
       </ul>
     </div>
   </div>
-</Page>
+
+  <Button href="/" variant="secondary" class="mt-10">Back to the start</Button>
+</BaseLayout>

@@ -3,41 +3,39 @@ import GoodbyeOverlay from "@components/GoodbyeOverlay.astro";
 import TelemetryDeck from "./TelemetryDeck.astro";
 ---
 
-<footer
-  class="w-full md:w-[720px] mx-auto px-4 md:px-0 border-t-[1px] border-neutral-300 py-6"
->
-  <div class="flex justify-between mb-16 text-xs">
-    <div class="group text-neutral-500">
+<footer class="wrap border-t border-line py-8 text-meta">
+  <div class="flex justify-between gap-6">
+    <div class="group text-muted">
       <span
-        class="inline-block transition-all duration-300 group-hover:rotate-180 group-hover:translate-y-[-1px] cursor-none"
+        class="inline-block transition-transform duration-300 group-hover:-translate-y-px group-hover:rotate-180"
         >&copy;</span
       > 2026
     </div>
-    <div>
-      <a href="/privacy/" title="Privacy" class="font-lighter no-underline">
+    <nav class="flex gap-4">
+      <a
+        href="/privacy/"
+        title="Privacy"
+        class="text-muted transition-colors hover:text-accent"
+      >
         Privacy
       </a>
-      &nbsp;
       <a
         href="mailto:hello@edvinlinden.se"
-        target="_blank"
         title="Email"
-        rel="noopener noreferrer"
-        class="font-lighter no-underline"
+        class="text-muted transition-colors hover:text-accent"
       >
         Email
       </a>
-      &nbsp;
       <a
         href="https://www.linkedin.com/in/edvin-linden"
         target="_blank"
         title="LinkedIn"
         rel="noopener noreferrer"
-        class="font-lighter no-underline"
+        class="text-muted transition-colors hover:text-accent"
       >
         LinkedIn
       </a>
-    </div>
+    </nav>
   </div>
   <GoodbyeOverlay />
   <TelemetryDeck />

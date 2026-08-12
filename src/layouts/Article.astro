@@ -1,77 +1,44 @@
 ---
-import Footer from "@components/Footer.astro";
-import Wrap from "@components/Wrap.astro";
-import Header from "@components/Header.astro";
-import Articles from "@components/Articles.astro";
-import "../tailwind/base.css";
-import { formatDate } from "../utils";
-
-export interface Props {
-  title: string;
-  description: string;
-  date: string;
-  image: string;
-}
+import ArticleRow from "@components/ArticleRow.astro";
+import Meta from "@components/Meta.astro";
+import PageHeader from "@components/PageHeader.astro";
+import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
-
 const { title, description, date, readingTime } = frontmatter;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogSlug = Astro.url.pathname.replace(/^\/|\/$/g, '');
-const socialImageURL = new URL(`/og/${ogSlug}.png`, Astro.site);
 
 const articleFiles = import.meta.glob("../pages/writing/*.md", { eager: true });
-const articles = Object.values(articleFiles);
+const related = (Object.values(articleFiles) as any[])
+  .filter((article) => article.frontmatter.title !== title)
+  .sort(() => 0.5 - Math.random())
+  .slice(0, 3);
 ---
 
-<!doctype html>
-<html lang="en" class="h-full m-0 p-0">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="author" content="Edvin Lindén" />
-    <meta name="description" content={description} />
-    <meta name="copyright" content="© Copyright 2020 to Present" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content={socialImageURL} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:site_name" content="Edvin Lindén" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="/images/smile.svg" />
-    <title>{title} – Edvin Lindén</title>
-  </head>
-  <body class="flex flex-col h-full">
-    <Header />
-    <article
-      class="flex flex-col items-center grow w-full md:w-[720px] mx-auto px-4 md:px-0"
-    >
-      <div class="w-full md:w-[720px]">
-        <h1 class="mb-8 md:text-center">{title}</h1>
-        <div
-          class="mb-16 md:text-center uppercase tracking-wider text-2xs font-normal text-neutral-500"
-        >
-          <span class="mr-2">{formatDate(date)}</span>⋅<span class="ml-2"
-            >{readingTime} reading time</span
-          >
-        </div>
-        <slot />
-      </div>
-    </article>
-    <div
-      class="text-xl text-center font-heading font-black text-neutral-900 bg:text-neutral-100"
-    >
-      Other things i've written
+<BaseLayout title={title} description={description} ogType="article">
+  <article>
+    <PageHeader title={title} align="center">
+      <Meta date={date} readingTime={readingTime} class="mt-5" />
+    </PageHeader>
+    <div class="prose">
+      <slot />
     </div>
-    <Articles
-      headline="Continue reading"
-      articles={articles
-        .filter((article) => article.frontmatter.title != title)
-        .sort(() => 0.5 - Math.random())
-        .slice(0, 3)}
-    />
-    <Footer />
-  </body>
-</html>
+  </article>
+
+  <section class="mt-24">
+    <h2 class="text-meta uppercase tracking-widest text-muted">
+      Other things I've written
+    </h2>
+    <ul class="mt-4 border-b border-line">
+      {
+        related.map((article) => (
+          <ArticleRow
+            href={article.url}
+            title={article.frontmatter.title}
+            date={article.frontmatter.date}
+            readingTime={article.frontmatter.readingTime}
+          />
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

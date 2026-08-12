@@ -1,155 +1,48 @@
 ---
-import FirstPage from "@layouts/FirstPage.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import Stats from "@components/Stats.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { projects } from "../data/projects";
+import { stats } from "../data/stats";
 ---
 
-<FirstPage
-  title="Home"
-  description="Edvin Lindén is a Product Leader at Fortnox that spends his time outside work creating things for digital devices."
+<BaseLayout
+    title="Home"
+    description="Edvin Lindén has been making small apps for iPhone and iPad for over five years, downloaded more than 125,000 times and used by over 11,000 people every month."
+    preloadImage="/images/edvin-linden-2024.webp"
 >
-  <div class="flex flex-col-reverse md:flex-row justify-between items-center">
-    <div class="w-full md:w-[360px] md:pr-6 text-pretty">
-      <h1
-        class="font-sans font-light text-neutral-500 text-[20px] tracking-normal leading-6 mt-4"
-      >
-        Hi, my name is Edvin and I am a product leader living in Sweden.
-      </h1>
-      <p>
-        I am currently working at{" "}
-        <a
-          href="https://fortnox.se"
-          target="_blank"
-          title="Fortnox"
-          rel="noopener noreferrer">{"Fortnox"}</a
-        >, helping businesses become more successful.
-      </p>
-      <p>
-        Aside of my day job I've been developing a few apps and keep this as a
-        playground to experiment with cool tech.
-      </p>
-    </div>
-    <picture
-      class="relative w-full sm:w-[400x] md:w-[360px] h-[480px] sm:h-[600px] md:h-[450px] mx-auto mb-8 md:mb-0"
+    <section
+        class="flex flex-col-reverse gap-10 md:flex-row md:items-center lg:gap-12 lg:breakout-right"
     >
-      <img
-        class="absolute top-0 bottom-0 left-0 right-0 w-full h-full object-cover rounded-xl"
-        src="/images/edvin-linden-2024.webp"
-        loading="lazy"
-        alt="Image of Edvin Lindén 2024"
-      />
-    </picture>
-  </div>
-  <div class="mt-24">
-    <h2 class="mb-16" id="projects">Projects</h2>
-  </div>
-   <a
-    href="https://apps.apple.com/us/app/sudoku-puzzle-game-offline/id6757938217?ref=edvinlinden.se"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex flex-col md:flex-row no-underline hover:text-neutral-500 rounded-xl hover:bg-neutral-100 md:p-6 mb-8"
-  >
-    <div
-      class="bg-[url('/images/sudoku.webp')] bg-cover bg-center w-full md:w-[180px] h-[300px] md:h-[180px] rounded-xl p-4 border border-neutral-300 mb-8 md:mb-0"
-    >
-    </div>
-    <div class="w-full md:w-[540px] md:pl-8">
- 	  <div class="flex flex-col md:flex-row md:items-center justify-between">
-        <h3 class="my-0 text-[20px]">Sudoku for iPhone & iPad</h3>
-      	<span class="text-xs font-medium">2026 – 20░░</span>
-      </div>
-      <p>
-        I have been playing a lot of Sudoku on my phone, but all the apps I tried were either full of ads or required a purchase.
-      </p>
-      <p>
-      	So I decided to create my own - a free Sudoku app without ads, push notifications or unneccisary experience points.
-      </p>
-      <p>
-      	I just want to pick up my phone, play some Sudoku and then go on with my life.
-      </p>
-    </div>
-  </a>
-  <a
-    href="https://github.com/edvinlinden/killedby.tech/?ref=edvinlinden.se"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex flex-col md:flex-row no-underline hover:text-neutral-500 rounded-xl hover:bg-neutral-100 md:p-6 mb-8"
-  >
-    <div
-      class="bg-[url('/images/killedbytech-2023-compressed.webp')] bg-cover bg-center w-full md:w-[180px] h-[300px] md:h-[180px] rounded-xl p-4 border border-neutral-300 mb-8 md:mb-0"
-    >
-    </div>
-    <div class="w-full md:w-[540px] md:pl-8">
-      <div class="flex flex-col md:flex-row md:items-center justify-between">
-        <div class="flex gap-4 items-center">
-          <h3 class="my-0 text-[20px]">Killedby.tech</h3>
-          <div
-            class="uppercase text-2xs font-normal tracking-wider rounded-sm bg-neutral-200 inline h-4 px-1"
-          >
-            Deprecated
-          </div>
+        <div class="text-pretty md:min-w-0 md:flex-1">
+            <h1 class="text-2xl leading-snug text-ink">
+                Hi, my name is Edvin and I have been building small apps for
+                over five years.
+            </h1>
+            <p class="mt-5">
+                It always starts the same way. I have a problem, go looking for
+                an app to solve it, and everything I try is full of ads, packed
+                with features I don't need, or takes ten taps to do one thing.
+            </p>
+            <p class="mt-5">So I build my own instead.</p>
         </div>
-        <span class="text-xs font-medium">2022 – 2025</span>
-      </div>
-      <p>
-        We all know about the Google Graveyard, the list of products that Google
-        have discontinued through the years.
-      </p>
-      <p>
-        While stumbling over a graveyard dedicated for Microsoft I was inspired
-        to create a page where discontinued products from all major tech
-        companies where listed.
-      </p>
-    </div>
-  </a>
-  <a
-    href="/the-impossible-safe/"
-    class="flex flex-col md:flex-row no-underline hover:text-neutral-500 rounded-xl hover:bg-neutral-100 md:p-6 mb-8"
-  >
-    <div
-      class="bg-[url('/images/theimpossiblesafe-2023-compressed.webp')] bg-cover bg-center w-full md:w-[180px] h-[300px] md:h-[180px] rounded-xl p-4 border border-[#0084d1] mb-8 md:mb-0"
-    >
-    </div>
-    <div class="w-full md:w-[540px] md:pl-8">
-      <div class="flex flex-col md:flex-row md:items-center justify-between">
-        <h3 class="my-0 text-[20px]">The Impossible Safe</h3>
-        <span class="text-xs font-medium">2022 – 20░░</span>
-      </div>
-      <p>
-        A safe cracking game for iPhone inspired by the Apple Watch game Break
-        This Safe from Rafael Conde.
-      </p>
-      <p>
-        The project was my second one using Swift and it's based around the
-        haptic feedback in the iPhone. By feeling different vibrations you'll be
-        able to find the correct combination to the safe.
-      </p>
-    </div>
-  </a>
-  <a
-    href="https://boxtimer.app/?ref=edvinlinden.se"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex flex-col md:flex-row no-underline hover:text-neutral-500 rounded-xl hover:bg-neutral-100 md:p-6 mb-8"
-  >
-    <div
-      class="bg-[url('/images/theboxtimer-2023-compressed.webp')] bg-cover bg-center w-full md:w-[180px] h-[300px] md:h-[180px] rounded-xl p-4 mb-8 md:mb-0"
-    >
-    </div>
-    <div class="w-full md:w-[540px] md:pl-8">
-      <div class="flex flex-col md:flex-row md:items-center justify-between">
-        <h3 class="my-0 text-[20px]">Box Timer – Workout Timer</h3>
-        <span class="text-xs font-medium">2021 – 20░░</span>
-      </div>
-      <p>
-        2020 was a strange year to say the least, it forced a lot of us to
-        workout at home or outside. Due to the situation I went looking for a
-        good workout timer to keep track of my workouts.
-      </p>
-      <p>
-        All the apps I tested was either too complicated, bloated with features
-        or had way too many ads(let's face it, no one likes ads). So I took it
-        upon myself to create a simple workout timer, free from ads and
-        unnecessary features.
-      </p>
-    </div>
-  </a>
-</FirstPage>
+        <img
+            src="/images/edvin-linden-2024.webp"
+            alt="Image of Edvin Lindén 2024"
+            width="360"
+            height="450"
+            class="aspect-[1/1] w-full rounded-xl object-cover md:aspect-[4/5] md:w-[260px] md:flex-none lg:w-[360px] shadow-2xl md:rotate-3"
+        />
+    </section>
+
+    <section class="mt-20">
+        <Stats stats={stats} />
+    </section>
+
+    <section id="projects" class="mt-24 scroll-mt-8">
+        <h2 class="text-meta uppercase tracking-widest text-muted">Projects</h2>
+        <div class="mt-8 flex flex-col gap-6 md:-mx-6">
+            {projects.map((project) => <ProjectCard {...project} />)}
+        </div>
+    </section>
+</BaseLayout>

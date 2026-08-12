@@ -1,0 +1,20 @@
+---
+import { formatDate } from "../utils";
+
+export interface Props {
+  date?: string;
+  readingTime?: string;
+  class?: string;
+}
+
+const { date, readingTime, class: className = "" } = Astro.props;
+
+const parts = [
+  date && formatDate(date),
+  readingTime && `${readingTime} reading time`,
+].filter(Boolean);
+---
+
+<p class={`text-meta uppercase tracking-widest text-muted ${className}`}>
+  {parts.join(" · ")}
+</p>

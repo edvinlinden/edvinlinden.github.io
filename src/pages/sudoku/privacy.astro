@@ -1,12 +1,15 @@
 ---
-import Page from "@layouts/Page.astro";
+import PageHeader from "@components/PageHeader.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
-<Page
+<BaseLayout
     title="Sudoku - Classic Puzzle Game – Privacy Policy"
     description="How I handle your data when using Sudoku - Classic Puzzle Game."
-    headline="Sudoku - Classic Puzzle Game"
 >
+    <PageHeader title="Sudoku - Classic Puzzle Game" />
+
+    <div class="prose">
     <h2 id="privacy-policy">Privacy Policy</h2>
     <p>Version 2026-08-11. Effective 11 August 2026.</p>
 
@@ -38,7 +41,7 @@ import Page from "@layouts/Page.astro";
         and the date and time.
     </p>
     <p><strong>What happened.</strong> Every event Sudoku sends:</p>
-    <ul style="list-style:disc; margin-left:32px;">
+    <ul>
         <li>your first session after installing the app</li>
         <li>a session starting</li>
         <li>
@@ -127,7 +130,7 @@ import Page from "@layouts/Page.astro";
 
     <h2>Why Sudoku collects this data</h2>
     <p>Three reasons, and no others:</p>
-    <ol style="list-style:decimal; margin-left:32px;">
+    <ol>
         <li>
             Checking a release works, by seeing whether the app is still used
             normally afterwards.
@@ -169,7 +172,7 @@ import Page from "@layouts/Page.astro";
         analytics service. Their privacy policy is at <a
             href="https://telemetrydeck.com/privacy"
             title="TelemetryDeck - Privacy Policy"
-            target="_blank">https://telemetrydeck.com/privacy</a
+            target="_blank" rel="noopener noreferrer">https://telemetrydeck.com/privacy</a
         >.
     </p>
     <p>
@@ -201,4 +204,5 @@ import Page from "@layouts/Page.astro";
         This policy may be updated. Changes are published on this page with a
         new effective date.
     </p>
-</Page>
+    </div>
+</BaseLayout>

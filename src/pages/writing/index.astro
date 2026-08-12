@@ -1,42 +1,32 @@
 ---
-import Page from "@layouts/Page.astro";
-import { formatDate } from "utils";
+import ArticleRow from "@components/ArticleRow.astro";
+import PageHeader from "@components/PageHeader.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 const matches = import.meta.glob("./*.md", { eager: true });
-const articles = Object.values(matches);
+const articles = (Object.values(matches) as any[]).sort(
+  (a, b) =>
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
+);
 ---
 
-<Page
+<BaseLayout
   title="Things I've written"
   description="Things written by Edvin Lindén, mostly about side projects such as app development."
 >
-  <div class="flex flex-col w-full justify-between mt-16 mb-24">
+  <PageHeader title="Things I've written" />
+
+  <ul class="border-b border-line">
     {
-      articles
-        .sort((a, b) => {
-          return (
-            new Date(b.frontmatter.date).valueOf() -
-            new Date(a.frontmatter.date).valueOf()
-          );
-        })
-        .map((article) => (
-          <div class="flex flex-col mb-4 pb-4 border-b-1">
-            <a
-              href={article.url}
-              class="no-underline hover:decoration-4 grow flex flex-col md:flex-row md:items-center justify-between"
-            >
-              <h2 class="mt-0 mb-2 text-base hover:text-sky-500">
-                {article.frontmatter.title}
-              </h2>
-            </a>
-            <div class="flex flex-row text-xs text-left text-neutral-500">
-              <span class="mr-2">{formatDate(article.frontmatter.date)}</span>⋅
-              <span class="ml-2">
-                {article.frontmatter.readingTime} reading time
-              </span>
-            </div>
-          </div>
-        ))
+      articles.map((article) => (
+        <ArticleRow
+          href={article.url}
+          title={article.frontmatter.title}
+          date={article.frontmatter.date}
+          readingTime={article.frontmatter.readingTime}
+        />
+      ))
     }
-  </div>
-</Page>
+  </ul>
+</BaseLayout>

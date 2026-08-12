@@ -1,0 +1,18 @@
+---
+export interface Props {
+  variant?: "neutral" | "accent";
+}
+
+const { variant = "neutral" } = Astro.props;
+
+const variants = {
+  neutral: "bg-raised text-body",
+  accent: "bg-accent-soft text-accent",
+};
+---
+
+<span
+  class={`inline-block rounded px-1.5 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-widest ${variants[variant]}`}
+>
+  <slot />
+</span>

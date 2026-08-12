@@ -6,8 +6,12 @@ import { Resvg } from '@resvg/resvg-js';
 // import.meta.url is rewritten by Vite in SSR context and does not reliably
 // resolve to the source-tree path. process.cwd() is stable because Astro
 // always runs from the project root during `astro build`.
-const fontData400 = readFileSync(join(process.cwd(), 'public/fonts/geologica-latin-400.ttf'));
-const fontData900 = readFileSync(join(process.cwd(), 'public/fonts/geologica-latin-900.ttf'));
+//
+// Arimo is metric-compatible with Arial, so the card matches the system sans
+// the site renders in. Satori needs an embeddable file, which rules out the
+// system font itself.
+const fontRegular = readFileSync(join(process.cwd(), 'src/fonts/arimo-latin-400.woff'));
+const fontBold = readFileSync(join(process.cwd(), 'src/fonts/arimo-latin-700.woff'));
 
 function OgTemplate({ title }: { title: string }) {
   return (
@@ -18,7 +22,7 @@ function OgTemplate({ title }: { title: string }) {
         justifyContent: 'space-between',
         width: '100%',
         height: '100%',
-        backgroundColor: '#ffffff',
+        backgroundColor: '#fafafa',
         paddingTop: 76,
         paddingRight: 120,
         paddingBottom: 60,
@@ -29,10 +33,10 @@ function OgTemplate({ title }: { title: string }) {
         style={{
           display: 'flex',
           fontSize: 20,
-          letterSpacing: '0.18em',
-          color: '#a3a3a3',
+          letterSpacing: '0.12em',
+          color: '#737373',
           fontWeight: 400,
-          fontFamily: 'Geologica',
+          fontFamily: 'Arimo',
         }}
       >
         EDVINLINDEN.SE
@@ -41,10 +45,11 @@ function OgTemplate({ title }: { title: string }) {
         style={{
           display: 'flex',
           fontSize: 72,
-          fontWeight: 900,
+          fontWeight: 700,
+          letterSpacing: '-0.02em',
           color: '#171717',
           lineHeight: 1.1,
-          fontFamily: 'Geologica',
+          fontFamily: 'Arimo',
           maxWidth: 960,
         }}
       >
@@ -55,7 +60,7 @@ function OgTemplate({ title }: { title: string }) {
           display: 'flex',
           width: 40,
           height: 3,
-          backgroundColor: '#171717',
+          backgroundColor: '#0369a1',
           borderRadius: 2,
         }}
       />
@@ -68,8 +73,8 @@ export async function generateOgImage(title: string): Promise<Buffer> {
     width: 1200,
     height: 630,
     fonts: [
-      { name: 'Geologica', data: fontData400, weight: 400, style: 'normal' },
-      { name: 'Geologica', data: fontData900, weight: 900, style: 'normal' },
+      { name: 'Arimo', data: fontRegular, weight: 400, style: 'normal' },
+      { name: 'Arimo', data: fontBold, weight: 700, style: 'normal' },
     ],
   });
 

@@ -2,18 +2,31 @@
 
 @theme {
   --font-*: initial;
-  --font-sans: Helvetica, Arial, sans-serif;
-  --font-heading: Helvetica, Arial, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --text-2xs: 0.65rem;
+  --color-surface: #fafafa;
+  --color-raised: #f0f0f0;
+  --color-line: #e5e5e5;
+  --color-muted: #737373;
+  --color-body: #525252;
+  --color-ink: #171717;
+  --color-accent: #0369a1;
+  --color-accent-strong: #075985;
+  --color-accent-soft: #e0f2fe;
+  --color-highlight: #fef08a;
+
+  /* Steps the default Tailwind scale does not carry. */
+  --text-meta: 0.8125rem;
+  --text-meta--line-height: 1.4;
+  --text-subhead: 1.375rem;
+  --text-subhead--line-height: 1.25;
+
+  --container-content: 45rem;
 
   --animate-marquee: marquee 30s linear infinite;
   --animate-marquee2: marquee2 30s linear infinite;
-  --animate-logofirst: logofirst 500ms ease 300ms forwards;
-  --animate-logolast: logolast 500ms ease 300ms forwards;
-  --animate-fade-in-200: fade-in 200ms ease 200ms forwards;
-  --animate-fade-in: fade-in 750ms ease-in-out 200ms forwards;
-  --animate-portrait-rotate: portrait-rotate 400ms ease-in-out 200ms forwards;
 
   @keyframes marquee {
     0% {
@@ -31,105 +44,118 @@
       transform: translateX(0%);
     }
   }
-  @keyframes logofirst {
-    0% {
-      transform: translateX(25px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0px);
-      opacity: 1;
-    }
-  }
-  @keyframes logolast {
-    0% {
-      transform: translateX(25px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(45px);
-      opacity: 1;
-    }
-  }
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes portrait-rotate {
-    0% {
-      opacity: 0;
-      transform: rotate(-6deg) translateX(-30%);
-    }
-    100% {
-      opacity: 1;
-      transform: rotate(6deg) translateX(0%);
-    }
-  }
+}
+
+/* The content measure, defined once and shared by the header, main and footer. */
+@utility wrap {
+  @apply mx-auto w-full max-w-content px-5;
 }
 
 /*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
+  Widens a section to the right only, so its left edge stays on the shared
+  measure with the header, the sections below and the footer. The pull is capped
+  against the viewport so the section always keeps a 20px gutter, which is what
+  the min() is for: below 1120px there is less than 200px to borrow.
 */
+@utility breakout-right {
+  margin-right: calc(-1 * min(200px, (100vw - var(--container-content)) / 2));
+}
+
 @layer base {
+  /* Tailwind v4 defaults borders to currentColor; the design uses one rule color. */
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--color-line);
+  }
+
+  body {
+    @apply bg-surface text-body font-sans text-xl leading-[1.6] antialiased;
+  }
+
+  code {
+    @apply rounded bg-raised px-1 py-0.5 font-mono text-[0.85em] text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-@layer base {
-  html {
-    @apply text-[20px] pt-8;
-  }
-  body {
-    @apply bg-neutral-50 font-sans font-light text-[20px] pt-8 text-neutral-500;
-  }
-  h1 {
-    @apply mt-12 mb-4 text-3xl md:text-5xl  font-heading font-black tracking-tight no-underline text-neutral-800;
-  }
-  h2 {
-    @apply mt-12 mb-4 text-xl md:text-3xl font-heading font-black tracking-wide no-underline text-neutral-800;
-  }
-  h3 {
-    @apply mt-12 mb-4 text-lg md:text-xl font-heading font-bold tracking-wide no-underline text-neutral-800;
-  }
-  h4 {
-    @apply mt-12 mb-4 text-base md:text-lg text-base font-heading font-medium tracking-wide no-underline text-neutral-800;
-  }
-  a {
-    @apply underline underline-offset-4 decoration-neutral-500 decoration-dashed decoration-1;
-  }
-  a:hover {
-    @apply text-sky-500;
-  }
-  p {
-    @apply my-4 text-base;
-  }
-  mark {
-    @apply bg-yellow-200 text-neutral-800 italic px-1;
+/*
+  Typographic element styles are scoped to .prose because markdown articles emit
+  bare elements. Everything outside .prose is styled by its component, so no page
+  has to override a heading back to something else.
+*/
+@layer components {
+  .prose > * + * {
+    @apply mt-5;
   }
 
-  article {
-    @apply mb-24;
+  .prose h2 {
+    @apply mt-12 text-2xl md:text-[1.75rem] font-semibold tracking-tight text-ink;
   }
 
-  blockquote {
-    @apply pl-4 border-l-4 border-neutral-300 text-neutral-500;
+  .prose h3 {
+    @apply mt-10 text-subhead font-semibold text-ink;
   }
 
-  main {
-    @apply flex flex-col flex grow mb-24;
+  .prose h2 + *,
+  .prose h3 + * {
+    @apply mt-3;
+  }
+
+  /*
+    The in-text link. Navigation and links inside cards are styled by their own
+    component and carry no underline.
+  */
+  .link,
+  .prose a {
+    @apply text-ink underline decoration-muted decoration-1 underline-offset-[3px] transition-colors;
+  }
+
+  .link:hover,
+  .prose a:hover {
+    @apply text-accent decoration-accent;
+  }
+
+  .prose strong {
+    @apply font-semibold text-ink;
+  }
+
+  .prose ul {
+    @apply list-disc pl-6;
+  }
+
+  .prose ol {
+    @apply list-decimal pl-6;
+  }
+
+  .prose li + li {
+    @apply mt-2;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-line pl-4;
+  }
+
+  .prose img {
+    @apply mx-auto my-8 rounded-lg;
+  }
+
+  .prose mark {
+    @apply bg-highlight px-1 italic text-ink;
   }
 }

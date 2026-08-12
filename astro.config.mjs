@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://edvinlinden.se",
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.includes("/design/") })],
   prefetch: true,
   vite: {
     plugins: [tailwindcss()],

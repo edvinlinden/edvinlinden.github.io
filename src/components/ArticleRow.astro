@@ -1,0 +1,21 @@
+---
+import Meta from "./Meta.astro";
+
+export interface Props {
+  href: string;
+  title: string;
+  date: string;
+  readingTime: string;
+}
+
+const { href, title, date, readingTime } = Astro.props;
+---
+
+<li class="border-t border-line">
+  <a href={href} class="group block py-5">
+    <p class="text-xl font-semibold text-ink transition-colors group-hover:text-accent">
+      {title}
+    </p>
+    <Meta date={date} readingTime={readingTime} class="mt-1.5" />
+  </a>
+</li>
