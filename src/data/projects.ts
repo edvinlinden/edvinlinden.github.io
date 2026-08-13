@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     title: "Sudoku for iPhone & iPad",
     href: "https://apps.apple.com/us/app/sudoku-puzzle-game-offline/id6757938217?ref=edvinlinden.se",
-    image: "/images/sudoku.webp",
+    image: "/images/sudoku-screenshot.webp",
     years: "2026 – 20░░",
     external: true,
     description: [
@@ -36,7 +36,7 @@ export const projects: Project[] = [
   {
     title: "The Impossible Safe",
     href: "/the-impossible-safe/",
-    image: "/images/theimpossiblesafe-2023-compressed.webp",
+    image: "/images/impossiblesafe-screenshot.webp",
     years: "2022 – 20░░",
     description: [
       "A safe cracking game for iPhone inspired by the Apple Watch game Break This Safe from Rafael Conde.",
@@ -46,7 +46,7 @@ export const projects: Project[] = [
   {
     title: "Box Timer – Workout Timer",
     href: "https://boxtimer.app/?ref=edvinlinden.se",
-    image: "/images/theboxtimer-2023-compressed.webp",
+    image: "/images/boxtimer-screenshot.webp",
     years: "2021 – 20░░",
     external: true,
     description: [
