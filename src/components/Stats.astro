@@ -2,23 +2,25 @@
 import type { Stat } from "../data/stats";
 
 export interface Props {
-  stats: Stat[];
+    stats: Stat[];
 }
 
 const { stats } = Astro.props;
 ---
 
-<dl class="grid gap-8 border-y border-line py-8 sm:grid-cols-3">
-  {
-    stats.map((stat) => (
-      <div>
-        <dt class="text-meta uppercase tracking-widest text-muted">
-          {stat.label}
-        </dt>
-        <dd class="mt-2 text-[2rem] font-bold leading-[1.1] tracking-tight text-ink">
-          {stat.value}
-        </dd>
-      </div>
-    ))
-  }
+<dl
+    class="flex flex-col items-center justify-between gap-16 py-8 text-center sm:items-start sm:flex-row"
+>
+    {
+        stats.map((stat) => (
+            <div>
+                <dt class="text-meta uppercase tracking-widest text-muted">
+                    {stat.label}
+                </dt>
+                <dd class="mt-2 text-[3rem] font-bold leading-[1.1] tracking-tight text-ink">
+                    {stat.value}
+                </dd>
+            </div>
+        ))
+    }
 </dl>
