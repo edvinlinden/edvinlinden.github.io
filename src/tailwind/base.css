@@ -52,13 +52,30 @@
 }
 
 /*
-  Widens a section to the right only, so its left edge stays on the shared
-  measure with the header, the sections below and the footer. The pull is capped
-  against the viewport so the section always keeps a 20px gutter, which is what
-  the min() is for: below 1120px there is less than 200px to borrow.
+  Widens a section past the measure on one side, so its other edge stays on the
+  shared measure with the header, the sections below and the footer. The pull is
+  capped against the viewport so the section always keeps a 20px gutter, which is
+  what the min() is for: below 1120px there is less than 200px to borrow.
+  --breakout-offset is how far the element already sits outside the measure on
+  its own (a project card spends 24px on the negative margin that pairs with its
+  hover padding); that much is subtracted from the budget.
 */
 @utility breakout-right {
-  margin-right: calc(-1 * min(200px, (100vw - var(--container-content)) / 2));
+  margin-right: calc(
+    -1 * min(
+        200px,
+        (100vw - var(--container-content)) / 2 - var(--breakout-offset, 0px)
+      )
+  );
+}
+
+@utility breakout-left {
+  margin-left: calc(
+    -1 * min(
+        200px,
+        (100vw - var(--container-content)) / 2 - var(--breakout-offset, 0px)
+      )
+  );
 }
 
 @layer base {

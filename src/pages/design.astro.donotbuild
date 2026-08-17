@@ -1,0 +1,296 @@
+---
+import ArticleRow from "@components/ArticleRow.astro";
+import Badge from "@components/Badge.astro";
+import Button from "@components/Button.astro";
+import Meta from "@components/Meta.astro";
+import PageHeader from "@components/PageHeader.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import Stats from "@components/Stats.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { projects } from "../data/projects";
+import { stats } from "../data/stats";
+
+const colors = [
+    {
+        name: "surface",
+        hex: "#fafafa",
+        swatch: "bg-surface",
+        use: "page background",
+    },
+    {
+        name: "raised",
+        hex: "#f0f0f0",
+        swatch: "bg-raised",
+        use: "card hover, badge",
+    },
+    {
+        name: "line",
+        hex: "#e5e5e5",
+        swatch: "bg-line",
+        use: "rules, hairlines",
+    },
+    {
+        name: "muted",
+        hex: "#737373",
+        swatch: "bg-muted",
+        use: "meta text, underlines",
+    },
+    { name: "body", hex: "#525252", swatch: "bg-body", use: "body copy" },
+    {
+        name: "ink",
+        hex: "#171717",
+        swatch: "bg-ink",
+        use: "headings, link rest",
+    },
+    {
+        name: "accent",
+        hex: "#0369a1",
+        swatch: "bg-accent",
+        use: "link hover, primary button",
+    },
+    {
+        name: "accent-strong",
+        hex: "#075985",
+        swatch: "bg-accent-strong",
+        use: "primary button hover",
+    },
+    {
+        name: "accent-soft",
+        hex: "#e0f2fe",
+        swatch: "bg-accent-soft",
+        use: "accent badge",
+    },
+    { name: "highlight", hex: "#fef08a", swatch: "bg-highlight", use: "mark" },
+];
+
+const typeScale = [
+    {
+        name: "h1",
+        spec: "32 → 40px · 700 · tight",
+        class: "text-[2rem] font-bold leading-[1.1] tracking-tight text-ink md:text-[2.5rem]",
+        sample: "Things I've written",
+    },
+    {
+        name: "h2",
+        spec: "24 → 28px · 600",
+        class: "text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]",
+        sample: "What I do for work",
+    },
+    {
+        name: "subhead",
+        spec: "22px · 600 · card and section titles",
+        class: "text-subhead font-semibold text-ink",
+        sample: "Sudoku for iPhone & iPad",
+    },
+    {
+        name: "lead",
+        spec: "24px · 400 · opening sentence only",
+        class: "text-2xl leading-snug text-ink",
+        sample: "Hi, my name is Edvin and I have been building small apps for over five years.",
+    },
+    {
+        name: "body",
+        spec: "20px / 1.6 · the default, inherited from body",
+        class: "",
+        sample: "It always starts the same way. I have a problem, go looking for an app to solve it, and everything I try is full of ads. Body copy runs to a 680px measure.",
+    },
+    {
+        name: "secondary",
+        spec: "18px · supporting copy inside a component",
+        class: "text-lg",
+        sample: "A free Sudoku app without ads, push notifications or experience points.",
+    },
+    {
+        name: "meta",
+        spec: "13px · uppercase · dates, labels, eyebrows",
+        class: "text-meta uppercase tracking-widest text-muted",
+        sample: "4 July 2022 · 2 minutes reading time",
+    },
+];
+---
+
+<BaseLayout
+    title="Design system"
+    description="The tokens and components this site is built from."
+    noindex
+>
+    <PageHeader title="Design system" />
+
+    <div class="prose">
+        <p>
+            Every value on this site comes from what is on this page. It renders
+            the real components, so it cannot drift from the site — if something
+            here looks wrong, the component is wrong.
+        </p>
+    </div>
+
+    <section class="mt-20">
+        <h2 class="text-meta uppercase tracking-widest text-muted">Color</h2>
+        <ul class="mt-6 border-b border-line">
+            {
+                colors.map((color) => (
+                    <li class="flex items-center gap-4 border-t border-line py-3">
+                        <span
+                            class={`h-10 w-10 flex-none rounded border border-line ${color.swatch}`}
+                        />
+                        <span class="w-40 flex-none text-lg font-semibold text-ink">
+                            {color.name}
+                        </span>
+                        <span class="text-meta w-24 flex-none uppercase tracking-widest text-muted">
+                            {color.hex}
+                        </span>
+                        <span class="text-lg">{color.use}</span>
+                    </li>
+                ))
+            }
+        </ul>
+        <p class="mt-5 text-lg">
+            Body on surface is 7.4:1, muted on surface 4.7:1, accent on surface
+            5.6:1, white on accent 5.6:1. Every pair clears WCAG AA.
+        </p>
+    </section>
+
+    <section class="mt-20">
+        <h2 class="text-meta uppercase tracking-widest text-muted">Type</h2>
+        <div class="mt-6 border-b border-line">
+            {
+                typeScale.map((step) => (
+                    <div class="border-t border-line py-6">
+                        <p class="text-meta uppercase tracking-widest text-muted">
+                            {step.name} — {step.spec}
+                        </p>
+                        <p class={`mt-3 ${step.class}`}>{step.sample}</p>
+                    </div>
+                ))
+            }
+        </div>
+        <p class="mt-5 text-lg">
+            Headings carry no margins of their own. Vertical rhythm comes from
+            the container, which is why no page has to override a heading back
+            to something else.
+        </p>
+    </section>
+
+    <section class="mt-20">
+        <h2 class="text-meta uppercase tracking-widest text-muted">Links</h2>
+        <div class="mt-6 space-y-4">
+            <p>
+                In text, a link is <a href="/design/" class="link"
+                    >ink with a quiet underline</a
+                > and turns accent on hover. This is the <code>.link</code>
+                class, and the same rule styles every link inside <code
+                    >.prose</code
+                >.
+            </p>
+            <p>
+                In navigation and inside cards, a link carries <a
+                    href="/design/"
+                    class="text-ink transition-colors hover:text-accent"
+                    >no underline</a
+                > and turns accent on hover. That style belongs to the component,
+                not to the link.
+            </p>
+        </div>
+    </section>
+
+    <section class="mt-20">
+        <h2 class="text-meta uppercase tracking-widest text-muted">Buttons</h2>
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+            <Button href="/design/">Primary</Button>
+            <Button href="/design/" variant="secondary">Secondary</Button>
+            <Button href="/design/" variant="quiet">Quiet →</Button>
+        </div>
+        <p class="mt-5 text-lg">
+            Renders an anchor when given <code>href</code>, a button otherwise.
+            The App Store badge stays an image, per Apple's guidelines.
+        </p>
+    </section>
+
+    <section class="mt-20">
+        <h2 class="text-meta uppercase tracking-widest text-muted">Badges</h2>
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+            <Badge>Deprecated</Badge>
+            <Badge variant="accent">New</Badge>
+        </div>
+    </section>
+
+    <section class="mt-20">
+        <h2 class="text-meta uppercase tracking-widest text-muted">Meta</h2>
+        <div class="mt-6">
+            <Meta date="2022-07-04" readingTime="2 minutes" />
+        </div>
+    </section>
+
+    <section class="mt-20">
+        <h2 class="text-meta uppercase tracking-widest text-muted">
+            Project card
+        </h2>
+        <div class="mt-6 flex flex-col gap-6">
+            <ProjectCard {...projects[0]} />
+            <ProjectCard {...projects[1]} flipped />
+        </div>
+        <p class="mt-5 text-lg">
+            Driven by <code>src/data/projects.ts</code>. Adding a project means
+            adding an entry, not writing markup.
+        </p>
+    </section>
+
+    <section class="mt-20">
+        <h2 class="text-meta uppercase tracking-widest text-muted">Stats</h2>
+        <div class="mt-6">
+            <Stats stats={stats} />
+        </div>
+        <p class="mt-5 text-lg">
+            Driven by <code>src/data/stats.ts</code>. A definition list, so the
+            label reads before its number. Numbers use the h1 step without the
+            desktop bump, which keeps them under the lead sentence above them.
+        </p>
+    </section>
+
+    <section class="mt-20">
+        <h2 class="text-meta uppercase tracking-widest text-muted">
+            Article row
+        </h2>
+        <ul class="mt-6 border-b border-line">
+            <ArticleRow
+                href="/writing/the-product-kata/"
+                title="The Product Kata – How to solve the right problems, faster"
+                date="2022-07-04"
+                readingTime="2 minutes"
+            />
+            <ArticleRow
+                href="/writing/be-polite-say-goodbye/"
+                title="Be polite, say goodbye!"
+                date="2022-05-18"
+                readingTime="3 minutes"
+            />
+        </ul>
+    </section>
+
+    <section class="mt-20">
+        <h2 class="text-meta uppercase tracking-widest text-muted">Layout</h2>
+        <div class="mt-6 space-y-4 text-lg">
+            <p>
+                One container, the <code>wrap</code> utility: 45rem maximum with 20px
+                gutters, shared by the header, main and footer.
+            </p>
+            <p>
+                Two exceptions, the <code>breakout-right</code> and
+                <code>breakout-left</code> utilities: an element keeps one edge on
+                the measure and extends up to 200px past it on the other, so an image
+                can be larger without narrowing the text. The home hero pushes its
+                portrait right; the project cards alternate, so the screenshots zigzag
+                down the page in the margin the text does not use.
+            </p>
+            <p>
+                Two layouts. <code>BaseLayout</code> handles head, header, container
+                and footer; <code>Article</code> adds the title block, meta line,
+                prose wrapper and related list.
+            </p>
+            <p>
+                Every interactive element gets a 2px accent focus ring, and
+                animation is disabled under <code>prefers-reduced-motion</code>.
+            </p>
+        </div>
+    </section>
+</BaseLayout>

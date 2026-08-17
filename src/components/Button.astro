@@ -1,44 +1,45 @@
 ---
 export interface Props {
-  href?: string;
-  variant?: "primary" | "secondary" | "quiet";
-  external?: boolean;
-  id?: string;
-  class?: string;
+    href?: string;
+    variant?: "primary" | "secondary" | "quiet";
+    external?: boolean;
+    id?: string;
+    class?: string;
 }
 
 const {
-  href,
-  variant = "primary",
-  external = false,
-  id,
-  class: className = "",
+    href,
+    variant = "primary",
+    external = false,
+    id,
+    class: className = "",
 } = Astro.props;
 
 const base =
-  "inline-flex items-center gap-2 text-base font-semibold transition-colors";
+    "inline-flex items-center gap-2 text-base font-semibold transition-colors";
 
 const variants = {
-  primary: "rounded-lg bg-accent px-4 py-2.5 text-white hover:bg-accent-strong",
-  secondary:
-    "rounded-lg border border-muted/50 px-4 py-2.5 text-ink hover:border-accent hover:text-accent",
-  quiet: "text-accent hover:text-accent-strong",
+    primary:
+        "rounded-full bg-linear-to-t from-[#e5e5e5] to-[#f0f0f0] border border-line px-4 py-2.5 text-ink hover:from-[#f0f0f0] active:from-[#e5e5e5] active:to-[#e5e5e5]",
+    secondary:
+        "rounded-full border border-muted/50 px-4 py-2.5 text-ink hover:border-accent hover:text-accent",
+    quiet: "text-accent hover:text-accent-strong",
 };
 
 const classes = `${base} ${variants[variant]} ${className}`;
 const externalAttrs = external
-  ? { target: "_blank", rel: "noopener noreferrer" }
-  : {};
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
 ---
 
 {
-  href ? (
-    <a href={href} id={id} class={classes} {...externalAttrs}>
-      <slot />
-    </a>
-  ) : (
-    <button type="button" id={id} class={classes}>
-      <slot />
-    </button>
-  )
+    href ? (
+        <a href={href} id={id} class={classes} {...externalAttrs}>
+            <slot />
+        </a>
+    ) : (
+        <button type="button" id={id} class={classes}>
+            <slot />
+        </button>
+    )
 }
