@@ -30,6 +30,12 @@ const colors = [
         use: "rules, hairlines",
     },
     {
+        name: "shaded",
+        hex: "#D5D5D5",
+        swatch: "bg-shaded",
+        use: "meta text, underlines",
+    },
+    {
         name: "muted",
         hex: "#737373",
         swatch: "bg-muted",
