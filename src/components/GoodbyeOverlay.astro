@@ -1,52 +1,58 @@
 <div
-  id="goodbye"
-  class="fixed top-0 left-0 z-50 flex hidden h-screen w-screen items-center justify-center bg-surface text-[2.5rem] font-bold tracking-tight text-ink transition-opacity md:text-[4rem]"
+    id="goodbye"
+    class="fixed top-0 left-0 z-50 flex hidden h-screen w-screen items-center justify-center bg-surface text-[2.5rem] font-bold tracking-tight text-ink transition-opacity md:text-[4rem]"
 >
-  Goodbye
+    Goodbye
 </div>
 
 <script>
-  const isDevelopMode = import.meta.env.DEV;
-  let goodbyeInterval = null;
-  const goodbyeList = [
-    "Goodbye",
-    "Hej då",
-    "Farvel",
-    "Näkemiin",
-    "Au revoir",
-    "Tschüss",
-    "Aloha",
-    "Ciao",
-    "Adiós",
-    "وداعا",
-    "さようなら",
-    "再见",
-    "Kwaheri",
-    "ביי",
-    "अलविदा",
-    "잘 가",
-    "Αντίο",
-    "Adéu",
-  ];
+    const isDevelopMode = import.meta.env.DEV;
+    let goodbyeInterval = null;
+    const goodbyeList = [
+        "Goodbye",
+        "Hej då",
+        "Farvel",
+        "Näkemiin",
+        "Au revoir",
+        "Tschüss",
+        "Aloha",
+        "Ciao",
+        "Adiós",
+        "وداعا",
+        "さようなら",
+        "再见",
+        "Kwaheri",
+        "ביי",
+        "अलविदा",
+        "잘 가",
+        "Αντίο",
+        "Adéu",
+    ];
 
-  const addGoodbyeElement = () => {
-    document.getElementById("goodbye").classList.remove("hidden");
-    goodbyeInterval = setInterval(() => {
-      document.getElementById("goodbye").innerHTML =
-        goodbyeList[Math.floor(Math.random() * goodbyeList.length)];
-    }, 500);
-  };
+    const addGoodbyeElement = () => {
+        if (goodbyeInterval !== null) return;
+        document.getElementById("goodbye").classList.remove("hidden");
+        goodbyeInterval = setInterval(() => {
+            document.getElementById("goodbye").innerHTML =
+                goodbyeList[Math.floor(Math.random() * goodbyeList.length)];
+        }, 500);
+    };
 
-  const removeGoodbyeElement = () => {
-    document.getElementById("goodbye").classList.add("hidden");
-    document.getElementById("goodbye").innerHTML = "Goodbye";
-    clearInterval(goodbyeInterval);
-  };
+    const removeGoodbyeElement = () => {
+        document.getElementById("goodbye").classList.add("hidden");
+        document.getElementById("goodbye").innerHTML = "Goodbye";
+        clearInterval(goodbyeInterval);
+        goodbyeInterval = null;
+    };
 
-  if (!isDevelopMode) {
-    document.addEventListener("mouseleave", addGoodbyeElement);
-    document
-      .getElementById("goodbye")
-      .addEventListener("mouseover", removeGoodbyeElement);
-  }
+    if (!isDevelopMode) {
+        document.documentElement.addEventListener(
+            "mouseleave",
+            addGoodbyeElement,
+        );
+        document.documentElement.addEventListener(
+            "mouseenter",
+            removeGoodbyeElement,
+        );
+    }
 </script>
