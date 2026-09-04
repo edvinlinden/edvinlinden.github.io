@@ -7,12 +7,16 @@ export interface Project {
   years: string;
   badge?: string;
   description: string[];
+  /** One sentence for machine-readable summaries such as /llms.txt. */
+  summary: string;
   external?: boolean;
 }
 
 export const projects: Project[] = [
   {
     title: "Sudoku for iPhone & iPad",
+    summary:
+      "A free sudoku app for iPhone and iPad with no ads, no account and no internet needed. Five difficulty levels, smart notes, unlimited undo and iCloud sync.",
     href: "/sudoku/",
     linkText: "Download Sudoku",
     image: "/images/sudoku-screenshot.png",
@@ -26,6 +30,8 @@ export const projects: Project[] = [
   },
   {
     title: "Box Timer – Workout Timer",
+    summary:
+      "A workout timer for iPhone, free of ads and free of the features an interval timer does not need.",
     href: "https://boxtimer.app/?ref=edvinlinden.se",
     linkText: "Download Box Timer",
     image: "/images/boxtimer-screenshot.png",
@@ -39,6 +45,8 @@ export const projects: Project[] = [
   },
   {
     title: "The Impossible Safe",
+    summary:
+      "A safe cracking game for iPhone played by feel, using the haptic engine to hint at the right combination.",
     href: "/the-impossible-safe/",
     linkText: "Download The Impossible Safe",
     image: "/images/the-impossible-safe-screenshot.webp",
@@ -51,6 +59,8 @@ export const projects: Project[] = [
   },
   {
     title: "Killedby.tech",
+    summary:
+      "A site listing products discontinued by major tech companies, in the spirit of the Google Graveyard.",
     href: "https://github.com/edvinlinden/killedby.tech/?ref=edvinlinden.se",
     linkText: "Killedby.tech on GitHub",
     years: "2022 – 2025",
