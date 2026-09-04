@@ -189,3 +189,77 @@ export const reviews: Review[] = [
     author: "Yellowbird4",
   },
 ];
+
+/** The App Store listing. Site links append a ref parameter; machine-readable copies use it bare. */
+export const appStoreUrl = "https://apps.apple.com/app/id6757938217";
+
+export const appName = "Sudoku – No Ads, Unlimited";
+
+export const pageTitle = "Free sudoku app with no ads for iPhone and iPad";
+
+export const pageDescription =
+  "A free sudoku app with no ads, no account and no internet needed. Five difficulty levels, smart notes, unlimited undo and iCloud sync across iPhone and iPad.";
+
+export interface Faq {
+  q: string;
+  a: string;
+}
+
+/* Answers the App Store listing does not have room for. Shared with /sudoku.md. */
+export const faqs: Faq[] = [
+  {
+    q: "Is Sudoku really free?",
+    a:
+      "Yes. It costs nothing to download, there are no in-app purchases, no subscription and no paid tier. Every difficulty and every feature is there from the first launch.",
+  },
+  {
+    q: "Are there any ads?",
+    a:
+      "No. There are no banners, no full-screen ads between puzzles and no videos to watch before you can carry on. The app has no advertising in it at all.",
+  },
+  {
+    q: "Does it work offline?",
+    a:
+      "Yes. Puzzles are generated and solved on the device, so the app works on a plane, on the underground and in aeroplane mode.",
+  },
+  {
+    q: "Do I need an account to play?",
+    a:
+      "No. There is no sign-up, no login and no email address to give. Open the app and start a puzzle.",
+  },
+  {
+    q: "How many difficulty levels are there?",
+    a:
+      "Five, from Easy to Extremely Hard. Each puzzle is graded by the solving techniques it actually requires, so Easy stays easy and Extremely Hard earns the name.",
+  },
+  {
+    q: "Does it have pencil marks?",
+    a:
+      "Yes. Notes update themselves as numbers go into the board, so a possibility that is no longer valid disappears on its own.",
+  },
+  {
+    q: "Is there a dark mode?",
+    a:
+      "Yes. The board and the number pad follow the appearance set on the device, so Sudoku turns dark when the rest of the system does.",
+  },
+  {
+    q: "Which languages does it speak?",
+    a:
+      "English, German, Spanish, French, Japanese and Swedish. The app follows the language set on the device.",
+  },
+  {
+    q: "Which devices does it run on?",
+    a:
+      "iPhone on iOS 18.6 or later and iPad on iPadOS 18.6 or later. A puzzle started on one carries over to the other through iCloud.",
+  },
+  {
+    q: "Is there an Android version?",
+    a:
+      "No. Sudoku is written for Apple platforms only and there is no Android or web version.",
+  },
+  {
+    q: "What data does the app collect?",
+    a:
+      "Anonymous usage data, so I can see which parts of the app people use. It is not tied to an identity, it cannot be matched against any other app, and it can be switched off in the app's Privacy screen.",
+  },
+];

@@ -10,9 +10,12 @@ export interface Props {
   ogType?: "website" | "article";
   noindex?: boolean;
   preloadImage?: string;
+  /** A plain-text copy of the page for language models, linked as an alternate. */
+  markdownUrl?: string;
 }
 
-const { title, description, ogType, noindex, preloadImage } = Astro.props;
+const { title, description, ogType, noindex, preloadImage, markdownUrl } =
+  Astro.props;
 ---
 
 <!doctype html>
@@ -24,6 +27,16 @@ const { title, description, ogType, noindex, preloadImage } = Astro.props;
       ogType={ogType}
       noindex={noindex}
     />
+    {
+      markdownUrl && (
+        <link
+          rel="alternate"
+          type="text/markdown"
+          href={markdownUrl}
+          title={`${title} as markdown`}
+        />
+      )
+    }
     {
       preloadImage && (
         <link
