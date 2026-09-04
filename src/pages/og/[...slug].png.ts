@@ -23,6 +23,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
       params: { slug: 'the-impossible-safe' },
       props: { title: 'The Impossible Safe' },
     },
+    {
+      params: { slug: 'sudoku' },
+      props: { title: 'Free sudoku app with no ads' },
+    },
+    {
+      params: { slug: 'sudoku/privacy' },
+      props: { title: 'Sudoku – Privacy Policy' },
+    },
   ];
 
   return [...staticPaths, ...articlePaths];

@@ -1,0 +1,45 @@
+---
+export interface Props {
+    href: string;
+    /** Which block on the page this badge sits in, sent with the click signal. */
+    placement: string;
+    alt: string;
+    class?: string;
+}
+
+const { href, placement, alt, class: className = "" } = Astro.props;
+---
+
+<a
+    href={href}
+    data-appstore
+    data-placement={placement}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={`inline-block ${className}`}
+>
+    <img
+        src="/images/appstore-badge.svg"
+        alt={alt}
+        width="204"
+        height="44"
+        class="h-11 w-auto"
+    />
+</a>
+
+<script>
+    // Page views come from the site-wide TelemetryDeck script; this is the other
+    // half of the conversion rate. Opt-out is handled inside sendSignal, so it
+    // covers this signal too. Astro bundles this once per page however many
+    // badges render, so the listener is attached exactly once.
+    document.querySelectorAll("[data-appstore]").forEach((link) => {
+        link.addEventListener("click", () => {
+            (window as any).TelemetryDeck?.sendSignal({
+                type: "AppStoreClick",
+                "AppStoreClick.placement": (link as HTMLElement).dataset
+                    .placement,
+                "AppStoreClick.path": location.pathname,
+            });
+        });
+    });
+</script>
