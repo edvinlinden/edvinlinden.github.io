@@ -1,5 +1,5 @@
 ---
-import Button from "@components/Button.astro";
+import AnalyticsOptOut from "@components/AnalyticsOptOut.astro";
 import PageHeader from "@components/PageHeader.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 ---
@@ -11,7 +11,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   <PageHeader title="Privacy – How I handle your data" />
 
   <div class="prose">
-    <p>2026-07-27</p>
+    <p>2026-09-04</p>
     <p>
       I run this site personally, not as a company. If you email me, your
       message and address stay in my email archive. Nothing goes on a mailing
@@ -32,8 +32,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       <li>A daily-changing, anonymized visitor ID</li>
     </ul>
     <p>
+      Clicking a link to the App Store sends one more event: where on the page
+      that link was, and which page you clicked it from. Nothing else you do on
+      the site is recorded.
+    </p>
+    <p>
       No cookies. Nothing is written to or read from your device unless you opt
-      out below.
+      out below, and that opt-out setting is the only thing this site ever looks
+      for there.
     </p>
     <p>
       Legal basis: Article 6(1)(f) GDPR, legitimate interests in knowing whether
@@ -50,14 +56,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
     <h2>Opting out</h2>
     <p>
-      Click below and analytics stops for you on this site. It saves one opt-out
-      setting in your browser, so it covers this browser on this device. If your
-      browser sends a Global Privacy Control signal, analytics is skipped
-      automatically.
+      Use the switch below and analytics stops for you on this site,
+      immediately and on this page. It saves one opt-out setting in your
+      browser, so it covers this browser on this device, and the same switch
+      turns it back on. If your browser sends a Global Privacy Control signal,
+      analytics is skipped automatically and there is nothing for the switch to
+      do. Everything on the site works the same either way.
     </p>
-    <Button id="analytics-optout" variant="secondary">
-      Opt out of analytics
-    </Button>
+    <AnalyticsOptOut />
 
     <h2>Hosting</h2>
     <p>
@@ -86,7 +92,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       identifier, so I can't find your records in it. Article 11 GDPR doesn't
       require me to start collecting more about you to make that possible, and I
       won't. What I can do is stop collecting from you, which is what the
-      opt-out button does.
+      switch above does.
     </p>
     <p>
       You have the right to lodge a complaint with the Swedish data protection
@@ -101,12 +107,3 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     </p>
   </div>
 </BaseLayout>
-
-<script>
-  document
-    .getElementById("analytics-optout")
-    ?.addEventListener("click", () => {
-      localStorage.setItem("telemetryDeck-optout", "true");
-      alert("You have opted out of analytics for this site!");
-    });
-</script>

@@ -5,6 +5,8 @@ export interface Props {
     external?: boolean;
     id?: string;
     class?: string;
+    /** Rendered hidden, for controls a script reveals once it knows what to say. */
+    hidden?: boolean;
 }
 
 const {
@@ -13,6 +15,7 @@ const {
     external = false,
     id,
     class: className = "",
+    hidden = false,
 } = Astro.props;
 
 const base =
@@ -34,11 +37,11 @@ const externalAttrs = external
 
 {
     href ? (
-        <a href={href} id={id} class={classes} {...externalAttrs}>
+        <a href={href} id={id} class={classes} hidden={hidden} {...externalAttrs}>
             <slot />
         </a>
     ) : (
-        <button type="button" id={id} class={classes}>
+        <button type="button" id={id} class={classes} hidden={hidden}>
             <slot />
         </button>
     )
