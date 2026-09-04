@@ -1,12 +1,6 @@
 ---
-
+const appId = "54633903-E86D-4568-BB34-23E05CE1D1D6";
 ---
 
-<script defer async>
-  if (localStorage.getItem('telemetryDeck-optout') !== 'true' && !navigator.globalPrivacyControl) {
-    var s = document.createElement('script');
-    s.src = 'https://cdn.telemetrydeck.com/websdk/telemetrydeck.min.js';
-    s.setAttribute('data-app-id', '54633903-E86D-4568-BB34-23E05CE1D1D6');
-    document.head.appendChild(s);
-  }
-</script>
+{/* is:inline keeps this a classic script, which document.currentScript needs. */}
+<script is:inline defer src="/telemetrydeck.custom.js" data-app-id={appId}></script>

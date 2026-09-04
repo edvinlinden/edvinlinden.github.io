@@ -1,0 +1,437 @@
+---
+import AppStoreBadge from "@components/AppStoreBadge.astro";
+import PageHeader from "@components/PageHeader.astro";
+import StarRating from "@components/StarRating.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import {
+    features,
+    languages,
+    promises,
+    rating,
+    reviews,
+    screenshots,
+} from "../../data/sudoku";
+
+const appStoreUrl =
+    "https://apps.apple.com/app/id6757938217?ref=edvinlinden.se";
+
+const [hero] = screenshots;
+
+const ratingDisplay = rating.value.toFixed(1);
+
+const illustrationFile = (name: string) =>
+    `${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.png`;
+
+const faqs = [
+    {
+        q: "Is Sudoku really free?",
+        a: "Yes. It costs nothing to download, there are no in-app purchases, no subscription and no paid tier. Every difficulty and every feature is there from the first launch.",
+    },
+    {
+        q: "Are there any ads?",
+        a: "No. There are no banners, no full-screen ads between puzzles and no videos to watch before you can carry on. The app has no advertising in it at all.",
+    },
+    {
+        q: "Does it work offline?",
+        a: "Yes. Puzzles are generated and solved on the device, so the app works on a plane, on the underground and in aeroplane mode.",
+    },
+    {
+        q: "Do I need an account to play?",
+        a: "No. There is no sign-up, no login and no email address to give. Open the app and start a puzzle.",
+    },
+    {
+        q: "How many difficulty levels are there?",
+        a: "Five, from Easy to Extremely Hard. Each puzzle is graded by the solving techniques it actually requires, so Easy stays easy and Extremely Hard earns the name.",
+    },
+    {
+        q: "Does it have pencil marks?",
+        a: "Yes. Notes update themselves as numbers go into the board, so a possibility that is no longer valid disappears on its own.",
+    },
+    {
+        q: "Is there a dark mode?",
+        a: "Yes. The board and the number pad follow the appearance set on the device, so Sudoku turns dark when the rest of the system does.",
+    },
+    {
+        q: "Which languages does it speak?",
+        a: "English, German, Spanish, French, Japanese and Swedish. The app follows the language set on the device.",
+    },
+    {
+        q: "Which devices does it run on?",
+        a: "iPhone on iOS 18.6 or later and iPad on iPadOS 18.6 or later. A puzzle started on one carries over to the other through iCloud.",
+    },
+    {
+        q: "Is there an Android version?",
+        a: "No. Sudoku is written for Apple platforms only and there is no Android or web version.",
+    },
+    {
+        q: "What data does the app collect?",
+        a: "Anonymous usage data, so I can see which parts of the app people use. It is not tied to an identity, it cannot be matched against any other app, and it can be switched off in the app's Privacy screen.",
+    },
+];
+
+const title = "Free sudoku app with no ads for iPhone and iPad";
+const description =
+    "A free sudoku app with no ads, no account and no internet needed. Five difficulty levels, smart notes, unlimited undo and iCloud sync across iPhone and iPad.";
+
+const structuredData = [
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        name: "Sudoku – No Ads, Unlimited",
+        alternateName: "Sudoku",
+        applicationCategory: "GameApplication",
+        applicationSubCategory: "Puzzle",
+        operatingSystem: "iOS 18.6, iPadOS 18.6",
+        url: "https://edvinlinden.se/sudoku/",
+        downloadUrl: "https://apps.apple.com/app/id6757938217",
+        installUrl: "https://apps.apple.com/app/id6757938217",
+        description,
+        inLanguage: ["en", "de", "es", "fr", "ja", "sv"],
+        contentRating: "4+",
+        fileSize: "6 MB",
+        datePublished: "2026-01-26",
+        image: "https://edvinlinden.se/images/sudoku/sudoku-app-icon.webp",
+        screenshot: screenshots.map(
+            (shot) => `https://edvinlinden.se${shot.src}`,
+        ),
+        featureList: [...promises, ...features].map(
+            (item) => `${item.name}: ${item.detail}`,
+        ),
+        author: {
+            "@type": "Person",
+            name: "Edvin Lindén",
+            url: "https://edvinlinden.se/about/",
+        },
+        offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+        },
+        privacyPolicy: "https://edvinlinden.se/sudoku/privacy/",
+        aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: ratingDisplay,
+            ratingCount: rating.count,
+            bestRating: "5",
+            worstRating: "1",
+        },
+        review: reviews.map((review) => ({
+            "@type": "Review",
+            name: review.title,
+            reviewBody: review.body,
+            author: { "@type": "Person", name: review.author },
+            reviewRating: {
+                "@type": "Rating",
+                ratingValue: String(review.rating),
+                bestRating: "5",
+                worstRating: "1",
+            },
+        })),
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            {
+                "@type": "ListItem",
+                position: 1,
+                name: "Edvin Lindén",
+                item: "https://edvinlinden.se/",
+            },
+            {
+                "@type": "ListItem",
+                position: 2,
+                name: "Sudoku",
+                item: "https://edvinlinden.se/sudoku/",
+            },
+        ],
+    },
+];
+---
+
+<BaseLayout title={title} description={description}>
+    <section
+        class="flex flex-col gap-10 md:flex-row md:items-center lg:gap-12 lg:breakout-right"
+    >
+        <div class="text-pretty md:min-w-0 md:flex-1">
+            <PageHeader title="Free sudoku app with no ads">
+                <p class="mt-5">
+                    I played a lot of sudoku on my phone, and every app I tried
+                    was either full of ads or wanted money before I could start
+                    a puzzle. So I built my own and called it Sudoku – No Ads,
+                    Unlimited.
+                </p>
+                <p class="mt-5">
+                    Five difficulty levels, from a first puzzle to one that will
+                    genuinely hold you up.
+                </p>
+            </PageHeader>
+            <AppStoreBadge
+                href={appStoreUrl}
+                placement="hero"
+                alt="Download Sudoku on the App Store"
+                class="mt-8"
+            />
+            <p
+                class="mt-2 flex flex-wrap items-center gap-2 text-base text-muted"
+            >
+                <StarRating rating={rating.value} size={16} />
+                <span>{ratingDisplay} out of 5 on the App Store</span>
+            </p>
+        </div>
+        <img
+            src={hero.src}
+            alt={hero.alt}
+            width={hero.width}
+            height={hero.height}
+            fetchpriority="high"
+            class="mx-auto w-[320px] rounded-3xl shadow-2xl md:mx-0 md:w-[260px] md:flex-none md:-rotate-3 md:rounded-3xl lg:w-[320px]"
+        />
+    </section>
+
+    <section class="mt-20">
+        <h2
+            class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]"
+        >
+            Features
+        </h2>
+        <ul
+            class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:breakout-left lg:breakout-right"
+        >
+            {
+                features.map((feature) => (
+                    <li class="rounded-2xl bg-raised p-5">
+                        <div
+                            class:list={[
+                                "aspect-square overflow-hidden",
+                                feature.illustration
+                                    ? ""
+                                    : "border-2 border-dashed border-shaded",
+                            ]}
+                        >
+                            {feature.illustration ? (
+                                <img
+                                    src={feature.illustration}
+                                    alt={feature.illustrationAlt ?? ""}
+                                    loading="lazy"
+                                    class="h-full w-full object-contain"
+                                />
+                            ) : (
+                                <p class="flex h-full flex-col items-center justify-center px-4 text-center font-mono text-meta leading-relaxed text-muted">
+                                    <span class="text-shaded">
+                                        /images/sudoku/features/
+                                    </span>
+                                    <span class="break-all">
+                                        {illustrationFile(feature.name)}
+                                    </span>
+                                    <span class="mt-1">1200 × 1200</span>
+                                </p>
+                            )}
+                        </div>
+                        <div class="mt-5">
+                            <p class="text-lg font-semibold text-ink">
+                                {feature.name}
+                            </p>
+                            <p class="mt-1 text-base text-muted">
+                                {feature.detail}
+                            </p>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+
+    <section class="mt-24">
+        <h2
+            class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]"
+        >
+            Built to stay out of the way
+        </h2>
+        <dl class="mt-8 border-b border-line">
+            {
+                promises.map((promise) => (
+                    <div class="grid gap-x-10 gap-y-1 border-t border-line py-6 md:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] md:items-baseline md:py-7">
+                        <dt class="text-[1.75rem] font-bold leading-[1.1] tracking-tight text-ink md:text-[2.25rem]">
+                            {promise.name}
+                        </dt>
+                        <dd class="text-pretty text-lg text-muted">
+                            {promise.detail}
+                        </dd>
+                    </div>
+                ))
+            }
+        </dl>
+    </section>
+
+    <section class="mt-24">
+        <h2
+            class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]"
+        >
+            Reviews on the App Store
+        </h2>
+        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <p
+                class="text-[3rem] font-black leading-none tracking-tight text-ink"
+            >
+                {ratingDisplay}
+            </p>
+            <div>
+                <StarRating rating={rating.value} size={22} />
+                <p class="mt-2 text-base text-muted">
+                    {rating.count} ratings on the App Store
+                </p>
+            </div>
+        </div>
+        <ul
+            class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:breakout-left lg:breakout-right"
+        >
+            {
+                reviews.map((review) => (
+                    <li class="flex flex-col rounded-2xl bg-raised p-5">
+                        <StarRating rating={review.rating} size={15} />
+                        <p class="mt-4 text-lg font-semibold text-ink">
+                            {review.title}
+                        </p>
+                        <blockquote class="mt-2 text-base text-muted">
+                            {review.body}
+                        </blockquote>
+                        <p class="mt-auto pt-5 text-meta uppercase tracking-widest text-muted">
+                            {review.author}
+                        </p>
+                    </li>
+                ))
+            }
+        </ul>
+        <AppStoreBadge
+            href={appStoreUrl}
+            placement="reviews"
+            alt="Download Sudoku on the App Store"
+            class="mt-10"
+        />
+    </section>
+
+    <section class="mt-24">
+        <h2
+            class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]"
+        >
+            Plays in six languages
+        </h2>
+        <p class="mt-3 text-lg">
+            Every menu, hint and statistic is translated. Sudoku follows
+            whichever language the device is set to.
+        </p>
+        <ul
+            class="mt-8 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 md:grid-cols-3"
+        >
+            {
+                languages.map((language) => (
+                    <li class="flex items-center gap-4 bg-surface px-5 py-4">
+                        <span class="text-5xl leading-none" aria-hidden="true">
+                            {language.flag}
+                        </span>
+                        <span>
+                            <span class="block text-lg font-semibold text-ink">
+                                {language.endonym}
+                            </span>
+                            {language.endonym !== language.name && (
+                                <span class="block text-meta uppercase tracking-widest text-muted">
+                                    {language.name}
+                                </span>
+                            )}
+                        </span>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+
+    <section class="mt-24">
+        <h2
+            class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]"
+        >
+            iPhone and iPad
+        </h2>
+        <p class="mt-3 text-lg">
+            The same app on both, laid out for the screen it is on. iCloud keeps
+            the board and the statistics in step, so a puzzle started on a phone
+            can be finished on an iPad.
+        </p>
+        <dl
+            class="mt-8 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2"
+        >
+            <div class="bg-surface px-5 py-4">
+                <dt class="text-lg font-semibold text-ink">iPhone</dt>
+                <dd class="text-meta uppercase tracking-widest text-muted">
+                    iOS 18.6 or later
+                </dd>
+            </div>
+            <div class="bg-surface px-5 py-4">
+                <dt class="text-lg font-semibold text-ink">iPad</dt>
+                <dd class="text-meta uppercase tracking-widest text-muted">
+                    iPadOS 18.6 or later
+                </dd>
+            </div>
+        </dl>
+        <AppStoreBadge
+            href={appStoreUrl}
+            placement="platforms"
+            alt="Download Sudoku on the App Store"
+            class="mt-8"
+        />
+    </section>
+
+    <section class="mt-24">
+        <h2
+            class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]"
+        >
+            Questions about the app
+        </h2>
+        <dl class="mt-8">
+            {
+                faqs.map((faq) => (
+                    <div class="border-t border-line py-6">
+                        <dt class="text-subhead font-semibold text-ink">
+                            {faq.q}
+                        </dt>
+                        <dd class="mt-2 text-lg">{faq.a}</dd>
+                    </div>
+                ))
+            }
+        </dl>
+    </section>
+
+    <section class="mt-16">
+        <h2
+            class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]"
+        >
+            Get Sudoku
+        </h2>
+        <p class="mt-3 text-lg">
+            Free on the App Store, for iPhone and iPad. No ads, no account,
+            nothing to cancel.
+        </p>
+        <AppStoreBadge
+            href={appStoreUrl}
+            placement="closing"
+            alt="Download Sudoku on the App Store"
+            class="mt-8"
+        />
+    </section>
+
+    <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(structuredData)}
+    />
+</BaseLayout>

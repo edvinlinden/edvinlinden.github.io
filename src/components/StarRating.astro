@@ -1,0 +1,61 @@
+---
+export interface Props {
+    /** Out of five. Fractions are drawn as a partly filled star, not rounded. */
+    rating: number;
+    size?: number;
+    class?: string;
+}
+
+const { rating, size = 18, class: className = "" } = Astro.props;
+
+const gap = size * 0.18;
+const width = size * 5 + gap * 4;
+const filled = Math.min(Math.max(rating / 5, 0), 1) * width;
+
+/* A five-pointed star drawn inside one size × size cell. */
+const outer = size / 2 - size * 0.03;
+const points = Array.from({ length: 10 }, (_, i) => {
+    const radius = i % 2 === 0 ? outer : outer * 0.42;
+    const angle = -Math.PI / 2 + (i * Math.PI) / 5;
+    const x = size / 2 + radius * Math.cos(angle);
+    const y = size / 2 + radius * Math.sin(angle);
+    return `${x.toFixed(2)},${y.toFixed(2)}`;
+}).join(" ");
+
+const offsets = Array.from({ length: 5 }, (_, i) => i * (size + gap));
+const clipId = `stars-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<svg
+    width={width}
+    height={size}
+    viewBox={`0 0 ${width} ${size}`}
+    aria-hidden="true"
+    class={className}
+>
+    <defs>
+        <clipPath id={clipId}>
+            <rect x="0" y="0" width={filled} height={size} />
+        </clipPath>
+    </defs>
+    {
+        offsets.map((offset) => (
+            <polygon
+                points={points}
+                transform={`translate(${offset} 0)`}
+                fill="var(--color-shaded)"
+            />
+        ))
+    }
+    <g clip-path={`url(#${clipId})`}>
+        {
+            offsets.map((offset) => (
+                <polygon
+                    points={points}
+                    transform={`translate(${offset} 0)`}
+                    fill="var(--color-ink)"
+                />
+            ))
+        }
+    </g>
+</svg>

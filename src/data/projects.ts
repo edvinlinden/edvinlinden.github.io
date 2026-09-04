@@ -13,12 +13,11 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "Sudoku for iPhone & iPad",
-    href: "https://apps.apple.com/us/app/sudoku-puzzle-game-offline/id6757938217?ref=edvinlinden.se",
+    href: "/sudoku/",
     linkText: "Download Sudoku",
     image: "/images/sudoku-screenshot.png",
     imageAltText: "Screenshot of the app Sudoku by Edvin Lindén",
     years: "2026 –",
-    external: true,
     description: [
       "I have been playing a lot of Sudoku on my phone, but all the apps I tried were either full of ads or required a purchase.",
       "So I decided to create my own - a free Sudoku app without ads, push notifications or unneccisary experience points.",

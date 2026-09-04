@@ -1,0 +1,75 @@
+---
+import Button from "@components/Button.astro";
+
+// The opt-out control for site analytics. The key it writes is the one
+// public/telemetrydeck.custom.js reads before it sends anything.
+---
+
+<div class="rounded-2xl border border-line bg-raised p-5">
+    <!-- Filled in by the script below. Empty until then, because the honest
+         answer depends on the browser and the wrong one must never flash up. -->
+    <p id="analytics-opt-out-status" class="text-lg text-ink" aria-live="polite">
+    </p>
+    <noscript>
+        <p class="text-lg text-ink">
+            Your browser has JavaScript turned off, so the analytics script
+            never runs and nothing is collected from you here.
+        </p>
+    </noscript>
+    <Button
+        id="analytics-opt-out-button"
+        variant="secondary"
+        hidden
+        class="mt-4"
+    />
+</div>
+
+<script is:inline>
+    (function () {
+        const KEY = "telemetryDeck-optout";
+        const status = document.getElementById("analytics-opt-out-status");
+        const button = document.getElementById("analytics-opt-out-button");
+
+        const readFlag = () => localStorage.getItem(KEY) === "true";
+
+        const render = (optedOut) => {
+            status.textContent = optedOut
+                ? "Analytics is off in this browser."
+                : "Analytics is on in this browser.";
+            button.textContent = optedOut
+                ? "Turn analytics on"
+                : "Turn analytics off";
+            button.hidden = false;
+        };
+
+        if (navigator.globalPrivacyControl === true) {
+            status.textContent =
+                "Your browser sends a Global Privacy Control signal, so analytics is off in this browser. Nothing here can switch it back on.";
+            return;
+        }
+
+        try {
+            render(readFlag());
+        } catch {
+            status.textContent =
+                "Your browser blocks websites from storing settings, so analytics is off in this browser.";
+            return;
+        }
+
+        button.addEventListener("click", function () {
+            try {
+                if (readFlag()) {
+                    localStorage.removeItem(KEY);
+                    render(false);
+                } else {
+                    localStorage.setItem(KEY, "true");
+                    render(true);
+                }
+            } catch {
+                status.textContent =
+                    "Your browser blocks websites from storing settings, so analytics is off in this browser.";
+                button.hidden = true;
+            }
+        });
+    })();
+</script>
