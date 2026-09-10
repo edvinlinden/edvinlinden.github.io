@@ -16,7 +16,7 @@
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^18.3.31",
-    "astro": "^7.2.1",
+    "astro": "^7.2.8",
     "react": "^18.3.1",
     "satori": "^0.26.0",
     "tailwindcss": "^4.3.3"
