@@ -16,14 +16,14 @@ const { href, placement, alt, class: className = "" } = Astro.props;
     data-placement={placement}
     target="_blank"
     rel="noopener noreferrer"
-    class={`inline-block ${className}`}
+    class={`mx-auto block w-fit cursor-pointer md:mx-0 ${className}`}
 >
     <img
         src="/images/appstore-badge.svg"
         alt={alt}
-        width="204"
-        height="44"
-        class="h-11 w-auto"
+        width="198"
+        height="66"
+        class="h-[66px] w-auto"
     />
 </a>
 

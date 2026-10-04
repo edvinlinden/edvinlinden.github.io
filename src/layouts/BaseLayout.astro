@@ -48,6 +48,7 @@ const { title, description, ogType, noindex, preloadImage, markdownUrl } =
         />
       )
     }
+    <slot name="head" />
   </head>
   <body class="flex h-full flex-col">
     <Header />
