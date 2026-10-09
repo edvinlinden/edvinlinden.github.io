@@ -1,0 +1,404 @@
+---
+import AppStoreBadge from "@components/AppStoreBadge.astro";
+import PageHeader from "@components/PageHeader.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import {
+    appName,
+    appStoreUrl,
+    developer,
+    difficulties,
+    difficultyIntro,
+} from "../../data/sudoku";
+import {
+    apps,
+    attributes,
+    briefLabels,
+    briefsIntro,
+    checkedOn,
+    closing,
+    difficultyHeading,
+    difficultyLevelsLead,
+    difficultyLink,
+    difficultyParagraphs,
+    disclosure,
+    faqs,
+    formatDate,
+    intro,
+    markdownPath,
+    models,
+    modelsHeading,
+    modelsIntro,
+    modifiedOn,
+    needs,
+    needsIntro,
+    pageDescription,
+    pageHeading,
+    pagePath,
+    pageTitle,
+    publishedOn,
+    tableCaption,
+    tableNote,
+    toHtml,
+} from "../../data/sudoku-comparison";
+
+const pageUrl = `https://edvinlinden.se${pagePath}`;
+
+/* The first sentence of each level; the full text lives on /sudoku/. */
+const firstSentence = (text: string) => text.split(/(?<=\.)\s/)[0];
+
+const structuredData = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: pageHeading,
+        description: pageDescription,
+        url: pageUrl,
+        mainEntityOfPage: pageUrl,
+        inLanguage: "en",
+        datePublished: publishedOn,
+        dateModified: modifiedOn,
+        image: "https://edvinlinden.se/og/sudoku/which-sudoku-app-is-right-for-you.png",
+        author: {
+            "@type": "Person",
+            name: developer.name,
+            url: `https://edvinlinden.se${developer.profilePath}`,
+            image: `https://edvinlinden.se${developer.portrait}`,
+        },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            {
+                "@type": "ListItem",
+                position: 1,
+                name: "Edvin Lindén",
+                item: "https://edvinlinden.se/",
+            },
+            {
+                "@type": "ListItem",
+                position: 2,
+                name: "Sudoku",
+                item: "https://edvinlinden.se/sudoku/",
+            },
+            {
+                "@type": "ListItem",
+                position: 3,
+                name: "Sudoku apps compared",
+                item: pageUrl,
+            },
+        ],
+    },
+];
+---
+
+<BaseLayout
+    title={pageTitle}
+    description={pageDescription}
+    ogType="article"
+    markdownUrl={markdownPath}
+>
+    <section class="text-pretty">
+        <PageHeader title={pageHeading}>
+            <p class="mt-5">{intro}</p>
+            {disclosure.map((paragraph) => (
+                <p class="mt-5" set:html={toHtml(paragraph)} />
+            ))}
+            <p class="mt-5 text-base text-muted">
+                Facts checked on{" "}
+                <time datetime={checkedOn}>{formatDate(checkedOn)}</time>.
+            </p>
+        </PageHeader>
+    </section>
+
+    <section class="mt-16">
+        <h2
+            id="comparison"
+            class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]"
+        >
+            The six apps side by side
+        </h2>
+        <p class="mt-3 text-base text-muted lg:hidden">
+            Swipe the table sideways to see all six apps.
+        </p>
+        {/* The table scrolls inside this box so the page itself never does. */}
+        <div
+            class="mt-6 overflow-x-auto rounded-xl border border-line lg:breakout-left lg:breakout-right"
+            role="region"
+            aria-labelledby="comparison"
+            tabindex="0"
+        >
+            <table
+                class="w-full min-w-[58rem] border-separate border-spacing-0 text-left text-base"
+            >
+                <caption class="sr-only">{tableCaption}</caption>
+                <thead>
+                    <tr>
+                        <th
+                            scope="col"
+                            class="sticky left-0 z-10 w-[7.5rem] min-w-[7.5rem] border-r border-line bg-raised px-4 py-3 align-bottom text-meta font-normal uppercase tracking-widest text-body"
+                        >
+                            App
+                        </th>
+                        {apps.map((app) => (
+                            <th
+                                scope="col"
+                                class="min-w-[8.25rem] bg-raised px-4 py-3 align-top font-semibold text-ink"
+                            >
+                                <img
+                                    src={app.icon}
+                                    alt=""
+                                    width="40"
+                                    height="40"
+                                    loading="lazy"
+                                    class="mb-2 size-10 rounded-[22%]"
+                                />
+                                {app.name}
+                            </th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {attributes.map((attribute) => (
+                        <tr>
+                            <th
+                                scope="row"
+                                class="sticky left-0 z-10 border-r border-t border-line bg-surface px-4 py-3 align-top font-semibold text-ink"
+                            >
+                                {attribute.label}
+                            </th>
+                            {apps.map((app) => (
+                                <td class="border-t border-line px-4 py-3 align-top">
+                                    {app.cells[attribute.key].value}
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                    <tr>
+                        <th
+                            scope="row"
+                            class="sticky left-0 z-10 border-r border-t border-line bg-surface px-4 py-3 align-top font-semibold text-ink"
+                        >
+                            App Store
+                        </th>
+                        {apps.map((app) => (
+                            <td class="border-t border-line px-4 py-3 align-top">
+                                <a
+                                    class="link"
+                                    href={app.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    data-compared-app={app.name}
+                                    data-placement="comparison-table"
+                                    data-appstore={app.own}
+                                >
+                                    Get app
+                                    <span class="sr-only">: {app.name}</span>
+                                </a>
+                            </td>
+                        ))}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="mt-4 text-base text-muted">{tableNote}</p>
+    </section>
+
+    <section class="mt-24">
+        <h2 class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]">
+            Which app fits which need
+        </h2>
+        <p class="mt-3 text-lg">{needsIntro}</p>
+        <dl class="mt-8 border-b border-line">
+            {needs.map((need) => (
+                <div class="grid gap-x-10 gap-y-2 border-t border-line py-6 md:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] md:items-baseline">
+                    <dt class="text-subhead font-semibold text-ink">
+                        {need.name}
+                    </dt>
+                    <dd class="text-pretty text-lg">{need.detail}</dd>
+                </div>
+            ))}
+        </dl>
+    </section>
+
+    <section class="mt-24">
+        <h2 class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]">
+            Each app in brief
+        </h2>
+        <p class="mt-3 text-lg">{briefsIntro}</p>
+        <div class="mt-8 grid gap-5">
+            {apps.map((app) => (
+                <article class="rounded-2xl bg-raised p-5 md:p-7">
+                    <div class="flex items-center gap-4">
+                        <img
+                            src={app.icon}
+                            alt=""
+                            width="56"
+                            height="56"
+                            loading="lazy"
+                            class="size-14 flex-none rounded-[22%]"
+                        />
+                        <div>
+                            <h3 class="text-subhead font-semibold text-ink">
+                                {app.name}
+                            </h3>
+                            <p class="mt-1 text-meta uppercase tracking-widest text-body">
+                                {app.developer}
+                            </p>
+                        </div>
+                    </div>
+                    <dl class="mt-5">
+                        {briefLabels.map((item) => (
+                            <div class="grid gap-x-8 gap-y-1 border-t border-shaded py-4 md:grid-cols-[minmax(0,11rem)_minmax(0,1fr)] md:items-baseline">
+                                <dt class="text-base font-semibold text-ink">
+                                    {item.label}
+                                </dt>
+                                <dd class="text-pretty text-lg">
+                                    {app.brief[item.key]}
+                                </dd>
+                            </div>
+                        ))}
+                    </dl>
+                    <p class="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-lg">
+                        <a
+                            class="link"
+                            href={app.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-compared-app={app.name}
+                            data-placement="comparison-brief"
+                            data-appstore={app.own}
+                        >
+                            {app.name} on the App Store
+                        </a>
+                        {app.more && (
+                            <a
+                                class="link"
+                                href={app.more.href}
+                                rel={
+                                    app.more.href.startsWith("/")
+                                        ? undefined
+                                        : "noopener noreferrer"
+                                }
+                            >
+                                {app.more.label}
+                            </a>
+                        )}
+                    </p>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <section class="mt-24">
+        <h2 class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]">
+            {difficultyHeading}
+        </h2>
+        {difficultyParagraphs.map((paragraph) => (
+            <p class="mt-3 text-lg">{paragraph}</p>
+        ))}
+        <h3 class="mt-10 text-subhead font-semibold text-ink">
+            {difficultyLevelsLead}
+        </h3>
+        <p class="mt-3 text-lg">{difficultyIntro}</p>
+        <ol class="mt-6 border-b border-line">
+            {difficulties.map((difficulty) => (
+                <li class="grid gap-x-10 gap-y-1 border-t border-line py-4 md:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] md:items-baseline">
+                    <span class="text-lg font-semibold text-ink">
+                        {difficulty.name}
+                    </span>
+                    <span class="text-pretty text-lg">
+                        {firstSentence(difficulty.detail)}
+                    </span>
+                </li>
+            ))}
+        </ol>
+        <p class="mt-6 text-lg">
+            <a class="link" href={difficultyLink.path}>
+                {difficultyLink.label}
+            </a>
+        </p>
+    </section>
+
+    <section class="mt-24">
+        <h2 class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]">
+            {modelsHeading}
+        </h2>
+        <p class="mt-3 text-lg">{modelsIntro}</p>
+        <dl class="mt-8 border-b border-line">
+            {models.map((model) => (
+                <div class="grid gap-x-10 gap-y-2 border-t border-line py-6 md:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] md:items-baseline">
+                    <dt class="text-subhead font-semibold text-ink">
+                        {model.name}
+                    </dt>
+                    <dd
+                        class="text-pretty text-lg"
+                        set:html={toHtml(model.detail)}
+                    />
+                </div>
+            ))}
+        </dl>
+    </section>
+
+    <section class="mt-24">
+        <h2 class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]">
+            Questions about choosing a Sudoku app
+        </h2>
+        <dl class="mt-8">
+            {faqs.map((faq) => (
+                <div class="border-t border-line py-6">
+                    <dt class="text-subhead font-semibold text-ink">{faq.q}</dt>
+                    <dd class="mt-2 text-lg">
+                        <p>{faq.a}</p>
+                    </dd>
+                </div>
+            ))}
+        </dl>
+    </section>
+
+    <section class="mt-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-ink md:text-[1.75rem]">
+            {closing.heading}
+        </h2>
+        <p class="mt-3 text-lg" set:html={toHtml(closing.text)} />
+        <AppStoreBadge
+            href={appStoreUrl}
+            placement="comparison-closing"
+            alt={`Download ${appName} on the App Store`}
+            class="mt-8"
+        />
+    </section>
+
+    <script>
+        // Which of the six apps readers go on to look at. Links to my own app
+        // also carry data-appstore, so AppStoreBadge counts them as AppStoreClick
+        // with the rest of the site. Opt-out is handled inside sendSignal.
+        document.querySelectorAll("[data-compared-app]").forEach((link) => {
+            link.addEventListener("click", () => {
+                const { comparedApp, placement } = (link as HTMLElement)
+                    .dataset;
+                (window as any).TelemetryDeck?.sendSignal({
+                    type: "ComparedAppClick",
+                    "ComparedAppClick.app": comparedApp,
+                    "ComparedAppClick.placement": placement,
+                    "ComparedAppClick.path": location.pathname,
+                });
+            });
+        });
+    </script>
+
+    <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(structuredData)}
+    />
+</BaseLayout>

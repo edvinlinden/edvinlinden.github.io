@@ -31,6 +31,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
       params: { slug: 'sudoku/privacy' },
       props: { title: 'Sudoku – Privacy Policy' },
     },
+    {
+      params: { slug: 'sudoku/which-sudoku-app-is-right-for-you' },
+      props: { title: 'Which Sudoku app is right for you?' },
+    },
   ];
 
   return [...staticPaths, ...articlePaths];

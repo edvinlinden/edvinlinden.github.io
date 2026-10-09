@@ -335,6 +335,15 @@ export const faqs: Faq[] = [
     link: { label: "Read the privacy policy", path: "/sudoku/privacy/" },
   },
   {
+    q: "How does it compare with other Sudoku apps?",
+    a:
+      `${developer.name} has compared ${appName} with five other Sudoku apps for iPhone and iPad on ads, price, difficulty levels, hints and sync. The comparison uses only what each app's App Store listing and developer site confirm, and it lists what this app lacks as well.`,
+    link: {
+      label: "Compare six Sudoku apps",
+      path: "/sudoku/which-sudoku-app-is-right-for-you/",
+    },
+  },
+  {
     q:`What is ${appName}?`,
     a: `${appName} is a simple Sudoku puzzle app for iPhone and iPad, made by ${developer.name}. It is designed for people who want to solve Sudoku without advertising, subscriptions, accounts or other distractions. Puzzles are generated and solved on the device, with five difficulty levels ranging from Easy to Extremely Hard. The app works offline and supports iCloud sync between iPhone and iPad.`,
   },

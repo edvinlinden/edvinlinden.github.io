@@ -18,13 +18,13 @@ export const projects: Project[] = [
     summary:
       "A free sudoku app for iPhone and iPad with no ads, no account and no internet needed. Five difficulty levels, smart notes, unlimited undo and iCloud sync.",
     href: "/sudoku/",
-    linkText: "Download Sudoku",
+    linkText: "More about Sudoku",
     image: "/images/sudoku-screenshot.png",
     imageAltText: "Screenshot of the app Sudoku by Edvin Lindén",
     years: "2026 –",
     description: [
       "I have been playing a lot of Sudoku on my phone, but all the apps I tried were either full of ads or required a purchase.",
-      "So I decided to create my own - a free Sudoku app without ads, push notifications or unneccisary experience points.",
+      "So I decided to create my own - a free Sudoku app without ads, push notifications or unnecessary experience points.",
       "I just want to pick up my phone, play some Sudoku and then go on with my life.",
     ],
   },
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     summary:
       "A workout timer for iPhone, free of ads and free of the features an interval timer does not need.",
     href: "https://boxtimer.app/?ref=edvinlinden.se",
-    linkText: "Download Box Timer",
+    linkText: "More about Box Timer",
     image: "/images/boxtimer-screenshot.png",
     imageAltText: "Screenshot of the app Box Timer by Edvin Lindén",
     years: "2021 –",
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     summary:
       "A safe cracking game for iPhone played by feel, using the haptic engine to hint at the right combination.",
     href: "/the-impossible-safe/",
-    linkText: "Download The Impossible Safe",
+    linkText: "More about The Impossible Safe",
     image: "/images/the-impossible-safe-screenshot.webp",
     imageAltText: "Screenshot of the app The Impossible Safe by Edvin Lindén",
     years: "2022 –",
