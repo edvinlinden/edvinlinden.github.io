@@ -11,13 +11,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
     <div class="prose">
     <h2 id="privacy-policy">Privacy Policy</h2>
-    <p>Version 2026-08-11. Effective 11 August 2026.</p>
+    <p>Version 2026-10-25. Effective 25 October 2026.</p>
 
     <h2>Who is responsible</h2>
     <p>
         I run Sudoku personally, not as a company, so the person responsible for
         everything here is me, Edvin Lindén. Write to <a
-            href="mailto:hello@edvinlinden.se">hello@edvinlinden.se</a
+            href="mailto:sudoku@edvinlinden.se">sudoku@edvinlinden.se</a
         >.
     </p>
     <p>
@@ -48,12 +48,17 @@ import BaseLayout from "@layouts/BaseLayout.astro";
             finishing the first-launch introduction, and which of its three
             routes you took
         </li>
-        <li>starting a new puzzle, with the difficulty</li>
+        <li>starting a new puzzle, with the difficulty and the mistake limit</li>
         <li>resuming a puzzle you had already started</li>
-        <li>completing a puzzle, with the difficulty and how long it took</li>
         <li>
-            giving up on a puzzle by starting another one, with the difficulty,
-            how long you played and how far through it you got
+            completing a puzzle, with the difficulty, how long it took, its
+            mistake limit, how many mistakes you made, and whether you kept
+            playing past the limit
+        </li>
+        <li>
+            giving up on a puzzle by starting another one or starting it over,
+            with the difficulty, how long you played, how far through it you
+            got, and the same mistake details as a completed puzzle
         </li>
     </ul>
     <p>
@@ -109,8 +114,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         exception, which is stated above and worth repeating plainly: the
         analytics events include the difficulty of a puzzle you start, finish or
         give up on, how long a puzzle took, how many of its squares you had
-        filled in when you gave up, and how many puzzles you have solved in
-        total. The boards themselves, your notes and your entries are never
+        filled in when you gave up, its mistake limit and how many mistakes
+        you made (counted up to 10, then sent as "10 or more"), and how many
+        puzzles you have solved in total. The boards themselves, your notes and your entries are never
         sent.
     </p>
 
