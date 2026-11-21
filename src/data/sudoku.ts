@@ -189,8 +189,8 @@ export const languages: Language[] = [
 */
 export const rating = {
   value: 4.5,
-  count: 335,
-  checkedOn: "2026-10-03",
+  count: 990,
+  checkedOn: "2026-11-21",
 };
 
 export interface Review {
